@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+  outline: none;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  background-attachment: fixed;
+  // background-color: #121212;
+  background-color: green;
+  scroll-behavior: smooth;
+  position: relative;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
