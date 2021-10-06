@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import "./pageEnterAnimation.css";
+var _ = require("lodash");
 
 const PageEnterAnimation = ({ showContent, showScrollDown }) => {
-  const coverName = useRef(null);
-  const coverDot = useRef(null);
-  const cover1 = useRef(null);
-  const cover2 = useRef(null);
-  const cover3 = useRef(null);
-  const cover4 = useRef(null);
-  const welcomeSentence = useRef(null);
+  const [welcomeSentenceDisplayArr, setWelcomeSentenceDisplayArr] = useState([
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   // set GSAP Timeline
   const [tl] = useState(new gsap.timeline());
   // name and dot animation
   useEffect(() => {
-    tl.from(coverName.current, {
+    tl.from(document.querySelector(".cover-name"), {
       opacity: 0,
       xPercent: -100,
       delay: 0.5,
@@ -24,7 +24,7 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
       yoyo: true,
     })
       .from(
-        coverDot.current,
+        document.querySelector(".cover-dot"),
         {
           opacity: 0,
           yPercent: 100,
@@ -35,17 +35,17 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
         },
         0.01
       )
-      .to(coverDot.current, {
+      .to(document.querySelector(".cover-dot"), {
         x: 30,
         duration: 1,
         ease: "power1.out",
       })
-      .to(coverDot.current, {
+      .to(document.querySelector(".cover-dot"), {
         x: 0,
         duration: 0.5,
         ease: "power1.out",
       })
-      .to(coverName.current, {
+      .to(document.querySelector(".cover-name"), {
         opacity: 0,
         xPercent: -100,
         duration: 1,
@@ -53,7 +53,7 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
         yoyo: true,
       })
       .to(
-        coverDot.current,
+        document.querySelector(".cover-dot"),
         {
           opacity: 0,
           duration: 1,
@@ -62,7 +62,7 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
         3
       )
       .to(
-        cover1.current,
+        document.querySelector(".cover-1"),
         {
           xPercent: -100,
           duration: 1,
@@ -71,7 +71,7 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
         3
       )
       .to(
-        cover2.current,
+        document.querySelector(".cover-2"),
         {
           xPercent: -100,
           duration: 1,
@@ -80,7 +80,7 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
         3.2
       )
       .to(
-        cover3.current,
+        document.querySelector(".cover-3"),
         {
           xPercent: -100,
           duration: 1,
@@ -89,7 +89,7 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
         3.4
       )
       .to(
-        cover4.current,
+        document.querySelector(".cover-4"),
         {
           xPercent: -100,
           duration: 1,
@@ -137,30 +137,85 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
           onComplete: () => {
             showScrollDown();
             showContent();
+            setWelcomeSentenceDisplayArr([true, true, true, true]);
           },
         },
         4.4
       );
-  }, [tl, showScrollDown]);
+  }, [tl]);
+
+  const elPercentDistanceToTop = (el) => {
+    return el.getBoundingClientRect().top / window.innerHeight;
+  };
+
+  const welcomeSentenceAnimation = (i) => {
+    let el1 = document.querySelector(`#welcome-sentence0${i}`);
+    let tl1 = new gsap.timeline();
+    if (
+      elPercentDistanceToTop(el1) <= 0.08 &&
+      !el1.classList.contains("hide-right")
+    ) {
+      tl1.clear();
+      tl1.to(el1, {
+        yPercent: -50,
+        duration: 0.3,
+        ease: "power1.inOut",
+        opacity: 0,
+        onComplete: () => {
+          tl1.clear();
+          el1.style.transform = "none";
+          el1.classList.add("hide-right");
+        },
+      });
+    } else if (
+      elPercentDistanceToTop(el1) > 0.08 &&
+      el1.classList.contains("hide-right")
+    ) {
+      tl1.clear();
+      tl1.to(el1, {
+        yPercent: 0,
+        duration: 0.3,
+        ease: "power1.inOut",
+        opacity: 1,
+        onComplete: () => {
+          tl1.clear();
+          el1.classList.remove("hide-right");
+          el1.style.transform = "none";
+          el1.classList.remove("hide-right");
+        },
+      });
+    }
+  }
+
+  // hide the welcome sentence when user scrolls down
+  useEffect(() => {
+    const hideWelcomeSentence = () => {
+      welcomeSentenceAnimation(1);
+      welcomeSentenceAnimation(2);
+      welcomeSentenceAnimation(3);
+      welcomeSentenceAnimation(4);
+    };
+
+    const throttledCount = _.throttle(hideWelcomeSentence, 150);
+    window.addEventListener("scroll", throttledCount);
+    return () => window.removeEventListener("scroll", throttledCount);
+
+  });
 
   return (
-    <div>
-      <div ref={cover4} className="cover-4"></div>
-      <div ref={cover3} className="cover-3"></div>
-      <div ref={cover2} className="cover-2"></div>
+    <div className="page-enter-div">
+      <div className="cover-4"></div>
+      <div className="cover-3"></div>
+      <div className="cover-2"></div>
 
-      <div ref={cover1} className="cover-1">
+      <div className="cover-1">
         <div className="cover-heading">
-          <div ref={coverName} className="cover-name">
-            Mingjie Wang
-          </div>
-          <div ref={coverDot} className="cover-dot">
-            .
-          </div>
+          <div className="cover-name">Mingjie Wang</div>
+          <div className="cover-dot">.</div>
         </div>
       </div>
 
-      <section ref={welcomeSentence} className="welcome-sentence">
+      <section className="welcome-sentence">
         <p id="welcome-sentence01">
           {" "}
           <span>W</span>ELCO<span>M</span>E TO{" "}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./scrollDown.scss";
 
 const ScrollDown = (props) => {
@@ -6,7 +6,7 @@ const ScrollDown = (props) => {
   const [mobileCheck, setMobileCheck] = useState(window.innerWidth <= 800);
 
   // change scroll down effect based on the window width
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       if (mobileCheck === (window.innerWidth <= 800)) return;
 
@@ -23,18 +23,18 @@ const ScrollDown = (props) => {
     <div className={"scrollDownWrapper " + (displayScrollDown ? "active" : "")}>
       {mobileCheck ? (
         <section id="scroll01">
-          <a href="#section08">
+          <div>
             <span></span>
             <span></span>
             <span></span>
-          </a>
+          </div>
         </section>
       ) : (
         <section id="scroll02">
-          <a href="#thanks">
+          <div>
             <span></span>
-          </a>
-        </section>
+          </div>
+        </section >
       )}
     </div>
   );

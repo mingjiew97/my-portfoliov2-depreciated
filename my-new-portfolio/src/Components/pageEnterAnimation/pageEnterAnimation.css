@@ -1,3 +1,9 @@
+.page-enter-div {
+  height: 100vh;
+  width: 100vw;
+  background-color: #121212;
+}
+
 .cover-1 {
   background-color: black;
   position: absolute;
@@ -61,6 +67,18 @@
   justify-content: center;
 }
 
+#welcome-sentence01 {
+  visibility: visible;
+  opacity: 1;
+  /* transition: all 0.5s ease-in; */
+}
+
+/* #welcome-sentence01.scroll-up-hide {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+} */
+
 .welcome-sentence p {
   color: white;
   font-size: 8.5vw;
@@ -92,6 +110,6 @@
 .welcome-sentence p span {
   font-family: "Major Mono Display", monospace;
   color: rgb(150, 149, 149);
-  font-size: 8.75vw;
+  font-size: 8.65vw;
   font-weight: 550;
 }
