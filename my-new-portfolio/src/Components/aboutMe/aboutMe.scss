@@ -1,0 +1,61 @@
+.paragraph-div {
+  margin: 10vh 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  transition: 0.3s ease-out;
+  will-change: transform;
+
+  small {
+    font-family: "Major Mono Display", monospace;
+    font-size: 3vw;
+  }
+
+  .section-paragraph {
+    width: 80%;
+    color: white;
+    font-weight: bolder;
+    font-family: "raleway";
+  }
+
+  .section-title {
+    font-size: 10vw;
+    color: pink;
+  }
+
+  .section-name {
+    font-size: 8.5vw;
+  }
+
+  .section-text {
+    font-size: 6vw;
+  }
+
+  .cross-text {
+    font-style: italic;
+    text-decoration: line-through;
+    color: lightsalmon;
+  }
+
+  .notion-text {
+    color: lightsalmon;
+  }
+
+  .school-text {
+      text-decoration: none;
+      color: #D6001C;
+  }
+
+  .grey-color {
+      color: grey;
+  }
+}
+
+.mt5vh {
+    margin-top: 5vh;
+}
+
+.mb5vh {
+    margin-bottom: 5vh;
+}

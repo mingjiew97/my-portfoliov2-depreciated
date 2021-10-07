@@ -70,14 +70,7 @@
 #welcome-sentence01 {
   visibility: visible;
   opacity: 1;
-  /* transition: all 0.5s ease-in; */
 }
-
-/* #welcome-sentence01.scroll-up-hide {
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-} */
 
 .welcome-sentence p {
   color: white;

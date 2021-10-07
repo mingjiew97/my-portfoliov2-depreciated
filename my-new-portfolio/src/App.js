@@ -3,7 +3,6 @@ import PageEnterAnimation from "./Components/pageEnterAnimation/pageEnterAnimati
 import ScrollDown from "./Components/scrollDown/scrollDown";
 import AboutMe from "./Components/aboutMe/aboutMe";
 import "./App.scss";
-import About from "./Components/aboutMe/About";
 
 const App = () => {
   const [display, setDisplay] = useState(false);
@@ -20,7 +19,7 @@ const App = () => {
   // hide the scroll down button when user scrolls down
   useEffect(() => {
     const hideScrollDown = () => {
-      let heightToHideFrom = 0.4 * window.innerHeight;
+      let heightToHideFrom = 0.55 * window.innerHeight;
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
 
       if (winScroll > heightToHideFrom) {
@@ -48,8 +47,7 @@ const App = () => {
 
       {display ? (
         <>
-          {/* <AboutMe /> */}
-          <About />
+          <AboutMe />
         </>
       ) : null}
     </div>

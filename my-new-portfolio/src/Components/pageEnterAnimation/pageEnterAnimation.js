@@ -1,16 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import "./pageEnterAnimation.css";
 var _ = require("lodash");
 
 const PageEnterAnimation = ({ showContent, showScrollDown }) => {
-  const [welcomeSentenceDisplayArr, setWelcomeSentenceDisplayArr] = useState([
-    false,
-    false,
-    false,
-    false,
-  ]);
-
   // set GSAP Timeline
   const [tl] = useState(new gsap.timeline());
   // name and dot animation
@@ -137,7 +130,6 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
           onComplete: () => {
             showScrollDown();
             showContent();
-            setWelcomeSentenceDisplayArr([true, true, true, true]);
           },
         },
         4.4
@@ -152,7 +144,7 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
     let el1 = document.querySelector(`#welcome-sentence0${i}`);
     let tl1 = new gsap.timeline();
     if (
-      elPercentDistanceToTop(el1) <= 0.08 &&
+      elPercentDistanceToTop(el1) <= 0.04 &&
       !el1.classList.contains("hide-right")
     ) {
       tl1.clear();
@@ -168,7 +160,7 @@ const PageEnterAnimation = ({ showContent, showScrollDown }) => {
         },
       });
     } else if (
-      elPercentDistanceToTop(el1) > 0.08 &&
+      elPercentDistanceToTop(el1) > 0.04 &&
       el1.classList.contains("hide-right")
     ) {
       tl1.clear();
