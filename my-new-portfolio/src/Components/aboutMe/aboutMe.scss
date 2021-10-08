@@ -50,7 +50,7 @@
   .minimalism-text {
     color: grey;
     font-family: "Major Mono Display", monospace;
-    font-size: 3vw;
+    font-size: 4.5vw;
   }
 
   .level-up-text {
@@ -100,73 +100,67 @@
   margin-bottom: 5vh;
 }
 
-$componentSize: 400px;
-$maskSize: 100px;
-$speed: 1s;
-$borderOffset: 8px;
+// $componentSize: 33vw;
+// $maskSize: 15vw;
+// $speed: 1s;
+// $borderOffset: 8px;
 
-$backgroundColor: #89cb66;
-$animationProps: $speed linear infinite alternate;
+// $backgroundColor: #89cb66;
+// $animationProps: $speed linear infinite alternate;
 
-@keyframes mask-move {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX($componentSize - $maskSize);
-  }
-}
+// @keyframes mask-move {
+//   0% {
+//     transform: translateX(0);
+//   }
+//   100% {
+//     transform: translateX($componentSize - $maskSize);
+//   }
+// }
 
-@keyframes mask-inner-move {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-($componentSize - $maskSize));
-  }
-}
+// @keyframes mask-inner-move {
+//   0% {
+//     transform: translateX(0);
+//   }
+//   100% {
+//     transform: translateX(-($componentSize - $maskSize));
+//   }
+// }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-.focus {
-  display: inline-block;
-  font-size: 6vw;
-  text-transform: uppercase;
-  color: white;
-  letter-spacing: 0.2rem;
-  line-height: 1;
-  position: relative;
-  width: $componentSize;
-  &:before {
-    content: "Focus";
-    filter: blur(3px);
-  }
-  &:after {
-    content: "";
-    position: absolute;
-    width: $maskSize;
-    height: calc(100% + #{$borderOffset});
-    top: -($borderOffset / 2);
-    left: 0;
-    border-top: 2px solid;
-    border-bottom: 2px solid;
-    animation: mask-move $animationProps;
-  }
-  &--mask {
-    overflow: hidden;
-    position: absolute;
-    width: $maskSize;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: $backgroundColor;
-    animation: mask-move $animationProps;
-    &-inner {
-      animation: mask-inner-move $animationProps;
-    }
-  }
-}
+// .focus {
+//   display: inline-block;
+//   font-size: 6vw;
+//   text-transform: uppercase;
+//   color: white;
+//   letter-spacing: 0.2rem;
+//   line-height: 1;
+//   position: relative;
+//   width: $componentSize;
+//   &:before {
+//     content: "Focusing";
+//     filter: blur(3px);
+//   }
+//   &:after {
+//     content: "";
+//     position: absolute;
+//     width: $maskSize;
+//     height: calc(100% + #{$borderOffset});
+//     top: -($borderOffset / 2);
+//     left: 0;
+//     border-top: 2px solid;
+//     border-bottom: 2px solid;
+//     animation: mask-move $animationProps;
+//   }
+//   &--mask {
+//     overflow: hidden;
+//     position: absolute;
+//     width: $maskSize;
+//     height: 100%;
+//     top: 0;
+//     left: 0;
+//     background: $backgroundColor;
+//     animation: mask-move $animationProps;
+//     &-inner {
+//       animation: mask-inner-move $animationProps;
+//     }
+//   }
+// }

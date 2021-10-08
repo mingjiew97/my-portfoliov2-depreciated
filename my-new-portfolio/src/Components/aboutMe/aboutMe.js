@@ -10,7 +10,7 @@ const AboutMe = () => {
 
   const titleAnimationHeight =
     0.4 * Math.min(window.innerHeight, window.innerWidth);
-  const textAnimationHeight = 0.5 * window.innerHeight;
+  const textAnimationHeight = 0.45 * window.innerHeight;
 
   return (
     <div className="about-me-div">
@@ -107,10 +107,10 @@ const AboutMe = () => {
             <span>g</span> <span>u</span>
             <span>p</span>
           </span>{" "}
-          my tech skills,{" "}
+          my tech skills, <br />
           <div className="focus">
             <div className="focus--mask">
-              <div className="focus--mask-inner">Focus</div>
+              <div className="focus--mask-inner">FOCUSING</div>
             </div>
           </div>{" "}
           on front-end at this moment.

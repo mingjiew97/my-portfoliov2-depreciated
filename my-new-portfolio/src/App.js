@@ -10,6 +10,9 @@ const App = () => {
 
   const showContent = () => {
     setDisplay(true);
+    // enable scroll function
+    let el = document.querySelector('body');
+    if (el && el.classList.contains('prevent-scroll')) el.classList.remove('prevent-scroll');
   };
 
   const showScrollDown = () => {
