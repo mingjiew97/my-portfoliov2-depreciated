@@ -81,16 +81,41 @@ const AboutMe = () => {
       >
         <h2 className="section-paragraph section-text">
           I believe in the notion of <br />
-          <span className="notion-text">
-            {" "}
-            &lt;ALL you need is LESS&gt;
-          </span>.{" "}
-          <br />
-          All my <span className="cross-text">outfit</span> work reflects my
+          <span className="notion-text"> &lt;LESS is MORE&gt;</span>. <br />
+          All my <span className="cross-text">outfit</span> work reflect my
           addiction of <span className="minimalism-text">Minimalism</span>.
         </h2>
       </div>
 
+      <div
+        className="paragraph-div mt5vh mb5vh"
+        data-aos="fade-up"
+        data-aos-offset={textAnimationHeight}
+        data-aos-duration="800"
+        data-aos-easing="ease"
+      >
+        <h2 className="section-paragraph section-text">
+          I am constantly{" "}
+          <span className="level-up-text">
+            <span>l</span>
+            <span>e</span>
+            <span>v</span>
+            <span>e</span>
+            <span>l</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span> <span>u</span>
+            <span>p</span>
+          </span>{" "}
+          my tech skills,{" "}
+          <div className="focus">
+            <div className="focus--mask">
+              <div className="focus--mask-inner">Focus</div>
+            </div>
+          </div>{" "}
+          on front-end at this moment.
+        </h2>
+      </div>
       <div
         id="para"
         data-aos="fade-up"
