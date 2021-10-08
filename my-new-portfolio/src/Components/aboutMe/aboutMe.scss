@@ -43,19 +43,21 @@
   }
 
   .school-text {
-      text-decoration: none;
-      color: #D6001C;
+    text-decoration: none;
+    color: #d6001c;
   }
 
-  .grey-color {
-      color: grey;
+  .minimalism-text {
+    color: grey;
+    font-family: "Major Mono Display", monospace;
+    font-size: 3vw;
   }
 }
 
 .mt5vh {
-    margin-top: 5vh;
+  margin-top: 5vh;
 }
 
 .mb5vh {
-    margin-bottom: 5vh;
+  margin-bottom: 5vh;
 }

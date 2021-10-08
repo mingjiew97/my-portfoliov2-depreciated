@@ -84,10 +84,10 @@ const AboutMe = () => {
           <span className="notion-text">
             {" "}
             &lt;ALL you need is LESS&gt;
-          </span>{" "}
+          </span>.{" "}
           <br />
           All my <span className="cross-text">outfit</span> work reflects my
-          addiction of <span className="grey-color">minimalism</span>.
+          addiction of <span className="minimalism-text">Minimalism</span>.
         </h2>
       </div>
 
