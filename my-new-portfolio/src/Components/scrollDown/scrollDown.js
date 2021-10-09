@@ -8,7 +8,7 @@ const ScrollDown = (props) => {
   // change scroll down effect based on the window width
   useEffect(() => {
     const handleResize = () => {
-      if (mobileCheck === window.innerWidth <= 800) return;
+      if (mobileCheck === (window.innerWidth <= 800)) return;
 
       setMobileCheck(window.innerWidth <= 800);
     };

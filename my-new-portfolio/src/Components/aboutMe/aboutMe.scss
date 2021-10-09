@@ -22,10 +22,15 @@
   .section-title {
     font-size: 10vw;
     color: pink;
+    letter-spacing: 0.5vw;
   }
 
   .section-name {
     font-size: 8.5vw;
+  }
+
+  .section-small-name {
+    font-size: 7vw;
   }
 
   .section-text {
@@ -90,6 +95,58 @@
     span:nth-of-type(11) {
       font-size: 7vw;
     }
+  }
+
+  .adj-text {
+    color: grey;
+    font-size: 5.5vw;
+    font-family: "Major Mono Display", monospace;
+  }
+
+  .java-text {
+    padding: 0 0.5vw;
+    color: #C33;
+  }
+
+  .js-text {
+    padding: 0 0.5vw;
+    color: black;
+    background-color: #FCDC00;
+  }
+
+  .express-text {
+    padding: 0 0.5vw;
+    color: #77B363;
+  }
+
+  .python-text {
+    padding: 0 0.5vw;
+    color: #2b5b84
+  }
+
+  .angular-text {
+    padding: 0 0.5vw;
+    background-color:#C3002F;
+  }
+
+  .react-text {
+    padding: 0 0.5vw;
+    color:#61dafb;
+  }
+
+  .redux-text {
+    padding: 0 0.5vw;
+    color: #764abc
+  }
+
+  .r-text {
+    padding: 0 0.5vw;
+    color: #1E62B2;
+  }
+
+  .go-text {
+    padding: 0 0.5vw;
+    color: #7FD5EA;
   }
 }
 
