@@ -11,8 +11,9 @@ const App = () => {
   const showContent = () => {
     setDisplay(true);
     // enable scroll function
-    let el = document.querySelector('body');
-    if (el && el.classList.contains('prevent-scroll')) el.classList.remove('prevent-scroll');
+    let el = document.querySelector("body");
+    if (el && el.classList.contains("prevent-scroll"))
+      el.classList.remove("prevent-scroll");
   };
 
   const showScrollDown = () => {
@@ -23,7 +24,8 @@ const App = () => {
   useEffect(() => {
     const hideScrollDown = () => {
       let heightToHideFrom = 0.55 * window.innerHeight;
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
 
       if (winScroll > heightToHideFrom) {
         if (displayScrollDown) setDisplayScrollDown(false);
@@ -45,7 +47,11 @@ const App = () => {
           showContent={() => showContent()}
           showScrollDown={() => showScrollDown()}
         />
-        <ScrollDown shouldDisplay={displayScrollDown} />
+        {display ? (
+          <>
+            <ScrollDown shouldDisplay={displayScrollDown} />{" "}
+          </>
+        ) : null}
       </div>
 
       {display ? (
