@@ -673,14 +673,351 @@ const AboutMe = () => {
           data-aos-easing="ease"
         >
           <h2 className="section-paragraph work-section-title">
-            Full Stack Software Engineer <br />
-            <span className="work-company-name work-section-small-font">
-              <span className="at-text">@</span> Uber
-            </span>
-            <span className="work-time-text work-section-small-font">
-              2021.07 - present
-            </span>
+            Verification Code Recognition System
           </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">&#183;</div>
+              <div className="work-section-detail">
+                Using CNN to automatically recognize Verification Code.
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">&#183;</div>
+              <div className="work-section-detail">
+                Achieving an accuracy rate of over 98%.
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">*</div>
+              <div className="work-section-detail">
+                Tech Stacks: Python - Tensorflow2
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt5vh mb5vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-title">
+            Apartment Management System - Website
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">&#183;</div>
+              <div className="work-section-detail">
+                Developed an apartment management system achieving the
+                functionality of
+                <div className="work-section-small-detail">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    Creating and Maintaining lease;
+                  </div>
+                </div>
+                <div className="work-section-small-detail">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    Rent Payment;
+                  </div>
+                </div>
+                <div className="work-section-small-detail">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    Managing Residences' scheduled services
+                  </div>
+                </div>
+                <div className="work-section-small-detail">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    "Open-House visiting" Scheduling
+                  </div>
+                </div>
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">&#183;</div>
+              <div className="work-section-detail">
+                Provided safe user login and password encoding via Spring
+                Security
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">&#183;</div>
+              <div className="work-section-detail">
+                Utilized CSS, Angular Material and Ignite UI for designing user
+                friendly UI, including navbar, calendar, table, etc.
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">*</div>
+              <div className="work-section-detail">
+                Tech Stacks:
+                <div className="work-section-small-detail">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    Front end: Angular 2+
+                  </div>
+                </div>
+                <div className="work-section-small-detail">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    Back end: Spring Boot Framework
+                  </div>
+                </div>
+                <div className="work-section-small-detail">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    Data base: PostgreSQL
+                  </div>
+                </div>
+                <div className="work-section-small-detail">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    Host: AWS
+                  </div>
+                </div>
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt5vh mb5vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-title">
+            Scheduler - Android App
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">&#183;</div>
+              <div className="work-section-detail">
+                Developed an Android App to monitor the availability of all
+                school facilities, such as gyms and reservation systems
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">&#183;</div>
+              <div className="work-section-detail">
+                Support real time events checking and event reservation
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">*</div>
+              <div className="work-section-detail">
+                Tech Stacks: Java, MySQL & Python
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt5vh mb5vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-title">
+            Hot Dog Recognition App{" "}
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">&#183;</div>
+              <div className="work-section-detail">
+                Inspired by the show Silicon Valley, <br />
+                built a Neural network with a 200+ hot dog image training set
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">&#183;</div>
+              <div className="work-section-detail">
+                Function: get the RGB distribution, to determine if brand new
+                images are hotdogs or not
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">&#183;</div>
+              <div className="work-section-detail">
+                Correctness ≈ 80%
+              </div>
+            </div>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-text">
+            <div className="work-section-row">
+              <div className="work-section-dot">*</div>
+              <div className="work-section-detail">
+                Tech Stacks: Python - Tensorflow1
+              </div>
+            </div>
+          </h2>
+        </div>
+      </div>
+
+      <div>
+        <div
+          className="paragraph-div"
+          data-aos="flip-up"
+          data-aos-anchor-placement="center-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h1 className="section-paragraph section-title">
+            <small> (005) </small> <br />
+            Wanna chat with ME?
+          </h1>
         </div>
       </div>
     </div>
