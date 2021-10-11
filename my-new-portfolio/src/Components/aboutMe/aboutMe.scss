@@ -97,56 +97,137 @@
     }
   }
 
+  .more-section-text {
+    font-size: 5.5vw;
+  }
+
   .adj-text {
     color: grey;
-    font-size: 5.5vw;
+    font-size: 5vw;
     font-family: "Major Mono Display", monospace;
   }
 
   .java-text {
     padding: 0 0.5vw;
-    color: #C33;
+    color: #c33;
   }
 
   .js-text {
     padding: 0 0.5vw;
     color: black;
-    background-color: #FCDC00;
+    background-color: #fcdc00;
   }
 
   .express-text {
     padding: 0 0.5vw;
-    color: #77B363;
+    color: #77b363;
   }
 
   .python-text {
     padding: 0 0.5vw;
-    color: #2b5b84
+    color: #2b5b84;
   }
 
   .angular-text {
     padding: 0 0.5vw;
-    background-color:#C3002F;
+    background-color: #c3002f;
   }
 
   .react-text {
     padding: 0 0.5vw;
-    color:#61dafb;
+    color: #61dafb;
   }
 
   .redux-text {
     padding: 0 0.5vw;
-    color: #764abc
+    color: #764abc;
   }
 
   .r-text {
     padding: 0 0.5vw;
-    color: #1E62B2;
+    color: #1e62b2;
   }
 
   .go-text {
     padding: 0 0.5vw;
-    color: #7FD5EA;
+    color: #7fd5ea;
+  }
+
+  .done-text {
+    color: red;
+    padding: 0 0.5vw;
+    text-decoration: line-through;
+  }
+
+  .work-section-title {
+    font-size: 5.5vw;
+  }
+
+  .work-section-small-title {
+    font-size: 5.5vw;
+  }
+
+  .work-company-name {
+    .at-text {
+      font-family: "Major Mono Display", monospace;
+    }
+    float: left;
+    color: grey;
+  }
+
+  .work-time-text {
+    float: right;
+    color: grey;
+    padding-right: 0.5vw;
+  }
+
+  .work-section-small-font {
+    font-size: 4vw;
+  }
+  .work-company-name {
+    .at-text {
+      font-family: "Major Mono Display", monospace;
+    }
+    float: left;
+    color: grey;
+  }
+
+  .work-time-text {
+    float: right;
+    color: grey;
+    padding-right: 0.5vw;
+  }
+
+  .work-section-text {
+    font-size: 4vw;
+  }
+
+  .work-section-row {
+    display: flex;
+    .work-section-dot {
+      flex: 5%;
+      font-size: 6vw;
+    }
+    .work-section-detail {
+      flex: 95%;
+
+      .work-section-small-detail {
+        display: flex;
+        .work-section-small-detail-dot {
+          flex: 5%;
+        }
+        .work-section-small-detail-text {
+          font-size: 3vw;
+          flex: 95%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .work-section-small-detail-text {
+          font-size: 4vw;
+        }
+      }
+    }
   }
 }
 
@@ -156,6 +237,18 @@
 
 .mb5vh {
   margin-bottom: 5vh;
+}
+
+.mt3vh {
+  margin-top: 3vh;
+}
+
+.mb3vh {
+  margin-bottom: 3vh;
+}
+
+.mt10vh {
+  margin-top: 10vh;
 }
 
 $componentSize: 30vw;
