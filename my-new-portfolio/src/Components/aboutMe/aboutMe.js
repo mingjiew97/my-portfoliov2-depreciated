@@ -8,10 +8,6 @@ const AboutMe = () => {
     AOS.init();
   }, []);
 
-  const titleAnimationHeight =
-    0.4 * Math.min(window.innerHeight, window.innerWidth);
-  const textAnimationHeight = 0.45 * window.innerHeight;
-
   return (
     <div>
       <div id="about-me-div">
@@ -60,14 +56,13 @@ const AboutMe = () => {
           data-aos-easing="ease"
         >
           <h2 className="section-paragraph section-text">
-            <span className="cross-text">A recent graduate</span> An alumni from
+            <span className="cross-text">A recent graduate</span> An alumni from{" "}
             <a
               className="school-text"
               href="https://www.rpi.edu/"
               target="_blank"
               rel="noreferrer"
             >
-              {" "}
               RPI
             </a>
             , NY.
@@ -128,7 +123,7 @@ const AboutMe = () => {
         >
           <h2 className="section-paragraph section-text">
             My goal is to <span className="cross-text">at least know</span>{" "}
-            <br /> LOVE what I am doing and{" "}
+            <br /> <span className="love-text">LOVE</span> what I am doing and{" "}
             <span className="cross-text">don't mess it up</span> <br />
             take it to ANOTHER level.
           </h2>
@@ -145,7 +140,10 @@ const AboutMe = () => {
         >
           <h1 className="section-paragraph section-title">
             <small> (002) </small> <br />
-            WHY I am an "AWESOME" Developer?
+            WHY I AM AN <br /> <span className="awesome-text">
+              AWESOME
+            </span>{" "}
+            DEVELOPER?
           </h1>
         </div>
 
@@ -284,7 +282,7 @@ const AboutMe = () => {
           data-aos-easing="ease"
         >
           <h2 className="section-paragraph section-small-name">
-            MOST <span className="notion-text">IMPORTANTLY</span>
+            MOST <span className="important-text">IMPORTANTLY</span>
           </h2>
         </div>
 
@@ -355,10 +353,10 @@ const AboutMe = () => {
                 <div className="work-section-small-detail">
                   <div className="work-section-small-detail-dot">*</div>
                   <div className="work-section-small-detail-text">
-                    Front end UI using FusionJS; <br />
-                    Widget using JavaScript; <br />
-                    Back end using NodeJS and Go; <br />
-                    Database using MySQL;
+                    Front end UI using FusionJS <br />
+                    Widget using JavaScript <br />
+                    Back end using NodeJS and Go <br />
+                    Database using MySQL
                   </div>
                 </div>
               </div>
@@ -395,7 +393,16 @@ const AboutMe = () => {
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
               <div className="work-section-detail">
-                Developed and Maintained Verizon's ThingSpace IoT platform
+                Developed and Maintained Verizon's <br />
+                <a
+                  className="thingspace-link"
+                  href="https://thingspace.verizon.com/index.html"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  ThingSpace
+                </a>{" "}
+                IoT platform
                 <div className="work-section-small-detail">
                   <div className="work-section-small-detail-dot">-</div>
                   <div className="work-section-small-detail-text">
@@ -406,9 +413,13 @@ const AboutMe = () => {
                 <div className="work-section-small-detail">
                   <div className="work-section-small-detail-dot">*</div>
                   <div className="work-section-small-detail-text">
-                    Front end using Angular2+; <br />
-                    Static Content using AEM (Adobe Experience Manager); <br />
-                    Back end using NodeJS; <br />
+                    Front end using Angular2+ <br />
+                    Static Content using AEM{" "}
+                    <span className="small-text">
+                      (Adobe Experience Manager)
+                    </span>{" "}
+                    <br />
+                    Back end using NodeJS <br />
                   </div>
                 </div>
               </div>
@@ -427,7 +438,15 @@ const AboutMe = () => {
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
               <div className="work-section-detail">
-                Designed and Developed the IoT Marketplace
+                Designed and Developed the <br />
+                <a
+                  className="thingspace-link"
+                  href="https://thingspace.verizon.com/marketplace.html"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  IoT Marketplace
+                </a>
                 <div className="work-section-small-detail">
                   <div className="work-section-small-detail-dot">-</div>
                   <div className="work-section-small-detail-text">
@@ -522,8 +541,9 @@ const AboutMe = () => {
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
               <div className="work-section-detail">
-                Migrated and Refactored the whole backend application from Azure
-                to AWS in 3 months.
+                Refactored the whole backend application and Migrated it from{" "}
+                <br />
+                Azure to AWS in 3 months.
               </div>
             </div>
           </h2>
@@ -654,7 +674,7 @@ const AboutMe = () => {
       <div id="side-projects-div">
         <div
           className="paragraph-div"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -667,7 +687,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt5vh mb5vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -679,7 +699,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -696,7 +716,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -705,7 +725,7 @@ const AboutMe = () => {
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
               <div className="work-section-detail">
-                Achieving an accuracy rate of over 98%.
+                Achieving an accuracy rate of over 88%.
               </div>
             </div>
           </h2>
@@ -713,7 +733,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -730,7 +750,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt5vh mb5vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -742,7 +762,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -784,7 +804,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -802,7 +822,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -820,7 +840,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -861,7 +881,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt5vh mb5vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -873,7 +893,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -891,7 +911,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -908,7 +928,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -925,7 +945,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt5vh mb5vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -937,7 +957,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -955,7 +975,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -973,7 +993,7 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -981,16 +1001,14 @@ const AboutMe = () => {
           <h2 className="section-paragraph work-section-text">
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
-              <div className="work-section-detail">
-                Correctness ≈ 80%
-              </div>
+              <div className="work-section-detail">Correctness ≈ 80%</div>
             </div>
           </h2>
         </div>
 
         <div
           className="paragraph-div mt3vh mb3vh"
-          data-aos="flip-up"
+          data-aos="fade-down-right"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -1006,17 +1024,78 @@ const AboutMe = () => {
         </div>
       </div>
 
+      <div id="talk-with-me">
+        <div
+          className="paragraph-div"
+          data-aos="flip-left"
+          data-aos-anchor-placement="top-center"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h1 className="section-paragraph section-title">
+            <small> (005) </small> <br />
+            WANNA JOIN THE <span className="squad-text">SQUAD</span>
+          </h1>
+        </div>
+
+        <div
+          className="paragraph-div mt5vh mb5vh"
+          data-aos="flip-left"
+          data-aos-anchor-placement="bottom-bottom"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-title input-text">
+            Name: <input className="input-box"></input>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt5vh mb5vh"
+          data-aos="flip-left"
+          data-aos-anchor-placement="bottom-bottom"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-title input-text">
+            Email: <input className="input-box"></input>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt10vh mb5vh"
+          data-aos="flip-left"
+          data-aos-anchor-placement="bottom-bottom"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h2 className="section-paragraph work-section-title input-text">
+            MESSAGE: <textarea className="text-area-box"></textarea>
+          </h2>
+        </div>
+
+        <div
+          className="paragraph-div mt5vh mb5vh button-div"
+          data-aos="flip-left"
+          data-aos-anchor-placement="bottom-bottom"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <span className="send-text">SEND</span>
+        </div>
+      </div>
+
       <div>
         <div
           className="paragraph-div"
-          data-aos="flip-up"
+          data-aos="flip-left"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
           <h1 className="section-paragraph section-title">
             <small> (005) </small> <br />
-            Wanna chat with ME?
+            WANNA TALK?
           </h1>
         </div>
       </div>

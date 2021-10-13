@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "suicideSquadFont";
+  src: url("./suicideSquadFont.ttf");
+}
+
 .paragraph-div {
   margin: 10vh 0;
   display: flex;
@@ -51,6 +56,13 @@
   .school-text {
     text-decoration: none;
     color: #d6001c;
+    border-bottom: 0.3vw solid currentColor;
+  }
+
+  .thingspace-link {
+    text-decoration: none;
+    color: white;
+    border-bottom: 0.25vw solid currentColor;
   }
 
   .minimalism-text {
@@ -95,6 +107,17 @@
     span:nth-of-type(11) {
       font-size: 7vw;
     }
+  }
+
+  .love-text {
+    font-family: "Major Mono Display", monospace;
+    font-size: 5.5vw;
+    color: pink;
+  }
+
+  .awesome-text {
+    font-family: "Major Mono Display", monospace;
+    font-size: 9vw;
   }
 
   .more-section-text {
@@ -151,6 +174,11 @@
   .go-text {
     padding: 0 0.5vw;
     color: #7fd5ea;
+  }
+
+  .important-text {
+    color: red;
+    padding: 0 0.5vw;
   }
 
   .done-text {
@@ -219,15 +247,68 @@
         .work-section-small-detail-text {
           font-size: 3vw;
           flex: 95%;
+          .small-text {
+            font-size: 2vw;
+          }
         }
       }
 
       @media (max-width: 600px) {
         .work-section-small-detail-text {
           font-size: 4vw;
+          .small-text {
+            font-size: 3vw;
+          }
         }
       }
     }
+  }
+
+  .squad-text {
+    font-weight: normal;
+    font-family: "suicideSquadFont";
+  }
+
+  .input-text {
+    color: pink;
+    font-weight: normal;
+    font-family: "suicideSquadFont";
+    font-size: 6vw;
+  }
+
+  .input-box {
+    background: transparent;
+    user-select: none;
+    outline: none;
+    border: none;
+    border-bottom: 0.3vw pink solid;
+    font-size: 5vw;
+    color: white;
+    font-family: "raleway";
+  }
+
+  .text-area-box {
+    background: transparent;
+    user-select: none;
+    outline: none;
+    border: 0.3vw pink solid;
+    font-size: 4.3vw;
+    color: white;
+    font-family: "raleway";
+  }
+
+  .button-div {
+    float: right;
+    margin-right: 20vw;
+  }
+
+  .send-text {
+    background-color: pink;
+    color: white;
+    font-weight: normal;
+    font-family: "suicideSquadFont";
+    font-size: 5vw;
+    padding: 1vw 1vw 0vw 1vw;
   }
 }
 
