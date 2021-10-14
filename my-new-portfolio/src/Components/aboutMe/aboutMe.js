@@ -8,8 +8,15 @@ const AboutMe = () => {
     AOS.init();
   }, []);
 
+  const sendMessage = () => {
+    let name = document.querySelector('#visitor-name').value;
+    let email = document.querySelector('#visitor-email').value;
+    let message = document.querySelector('#visitor-message').value;
+    console.log(name, email, message);
+  }
+
   return (
-    <div>
+    <div id="about-me-outter-wrap">
       <div id="about-me-div">
         <div
           className="paragraph-div"
@@ -1027,7 +1034,7 @@ const AboutMe = () => {
       <div id="talk-with-me">
         <div
           className="paragraph-div"
-          data-aos="flip-left"
+          data-aos="zoom-out-up"
           data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
@@ -1040,55 +1047,76 @@ const AboutMe = () => {
 
         <div
           className="paragraph-div mt5vh mb5vh"
-          data-aos="flip-left"
-          data-aos-anchor-placement="bottom-bottom"
+          data-aos="zoom-out-up"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
-          <h2 className="section-paragraph work-section-title input-text">
-            Name: <input className="input-box"></input>
-          </h2>
+          <div className="section-paragraph contact-me-div">
+            <div className="input-text-div">
+              <h2 className="section-paragraph work-section-title input-text">
+                NAME:
+              </h2>
+            </div>
+            <div className="input-box-div">
+              <input id="visitor-name" className="input-box" />
+            </div>
+          </div>
         </div>
 
         <div
           className="paragraph-div mt5vh mb5vh"
-          data-aos="flip-left"
-          data-aos-anchor-placement="bottom-bottom"
+          data-aos="zoom-out-up"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
-          <h2 className="section-paragraph work-section-title input-text">
-            Email: <input className="input-box"></input>
-          </h2>
+          <div className="section-paragraph contact-me-div">
+            <div className="input-text-div">
+              <h2 className="section-paragraph work-section-title input-text">
+                EMAIL:
+              </h2>
+            </div>
+            <div className="input-box-div">
+              <input id="visitor-email" className="input-box" />
+            </div>
+          </div>
         </div>
 
         <div
-          className="paragraph-div mt10vh mb5vh"
-          data-aos="flip-left"
-          data-aos-anchor-placement="bottom-bottom"
+          className="paragraph-div mt12vh mb5vh"
+          data-aos="zoom-out-up"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
-          <h2 className="section-paragraph work-section-title input-text">
-            MESSAGE: <textarea className="text-area-box"></textarea>
-          </h2>
+          <div className="section-paragraph contact-me-div">
+            <div className="input-text-div">
+              <h2 className="section-paragraph work-section-title input-text">
+                MESSAGE:
+              </h2>
+            </div>
+            <div className="textbox-div">
+              <textarea id="visitor-message" className="text-area-box" />
+            </div>
+          </div>
         </div>
 
         <div
           className="paragraph-div mt5vh mb5vh button-div"
-          data-aos="flip-left"
-          data-aos-anchor-placement="bottom-bottom"
+          data-aos="zoom-out-up"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
-          <span className="send-text">SEND</span>
+          <span className="send-text" onClick={sendMessage}>SEND</span>
         </div>
       </div>
 
       <div>
         <div
           className="paragraph-div"
-          data-aos="flip-left"
+          data-aos="zoom-out-up"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
