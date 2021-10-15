@@ -3,9 +3,9 @@
   src: url("./suicideSquadFont.ttf");
 }
 
-// #about-me-outter-wrap {
-//   max-width: 90vw;
-// }
+#about-me-outter-wrap {
+  max-width: 90vw;
+}
 
 .paragraph-div {
   margin: 10vh 0;
@@ -279,10 +279,10 @@
       flex: 30%;
     }
     .input-box-div {
-      flex: 70%;
+      flex: 60%;
     }
     .textbox-div {
-      padding-left: 7vw;
+      padding-left: 3vw;
       flex: 60%;
     }
   }
@@ -324,11 +324,15 @@
 
 .send-text {
   background-color: pink;
-  color: white;
+  color: black;
   font-weight: normal;
   font-family: "suicideSquadFont";
   font-size: 5vw;
   padding: 1vw 1vw 0vw 1vw;
+}
+
+.not-available {
+  opacity: 0.5;
 }
 
 .mt5vh {

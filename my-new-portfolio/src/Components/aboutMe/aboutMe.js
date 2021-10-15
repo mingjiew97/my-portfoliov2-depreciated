@@ -8,12 +8,24 @@ const AboutMe = () => {
     AOS.init();
   }, []);
 
+  const [emailError, setEmailError] = React.useState(false);
+
+  const validateEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const checkEmailInput = (event) => {
+    let userEmail = event.target.value;
+    setEmailError(validateEmail(userEmail));
+  };
+
   const sendMessage = () => {
-    let name = document.querySelector('#visitor-name').value;
-    let email = document.querySelector('#visitor-email').value;
-    let message = document.querySelector('#visitor-message').value;
+    let name = document.querySelector("#visitor-name").value;
+    let email = document.querySelector("#visitor-email").value;
+    let message = document.querySelector("#visitor-message").value;
     console.log(name, email, message);
-  }
+  };
 
   return (
     <div id="about-me-outter-wrap">
@@ -1078,7 +1090,11 @@ const AboutMe = () => {
               </h2>
             </div>
             <div className="input-box-div">
-              <input id="visitor-email" className="input-box" />
+              <input
+                id="visitor-email"
+                className="input-box"
+                onBlur={(e) => checkEmailInput(e)}
+              />
             </div>
           </div>
         </div>
@@ -1109,7 +1125,9 @@ const AboutMe = () => {
           data-aos-duration="600"
           data-aos-easing="ease"
         >
-          <span className="send-text" onClick={sendMessage}>SEND</span>
+          <span className="send-text not-available" onClick={sendMessage}>
+            SEND
+          </span>
         </div>
       </div>
 
