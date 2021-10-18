@@ -1,4 +1,8 @@
 import React, { useEffect } from "react";
+import "@lottiefiles/lottie-player";
+import emailjs from "emailjs-com";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 import AOS from "aos";
 import "./aboutMe.scss";
 import "aos/dist/aos.css";
@@ -8,27 +12,107 @@ const AboutMe = () => {
     AOS.init();
   }, []);
 
+  const [nameError, setNameError] = React.useState(false);
   const [emailError, setEmailError] = React.useState(false);
+  const [messageError, setMessageError] = React.useState(false);
+  const [messageSent, setMessageSent] = React.useState(false);
 
   const validateEmail = (email) => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
   };
 
+  const checkNameInput = (event) => {
+    checkSendButton();
+    setNameError(event.target.value.trim() === "");
+  };
+
   const checkEmailInput = (event) => {
+    checkSendButton();
     let userEmail = event.target.value;
-    setEmailError(validateEmail(userEmail));
+    setEmailError(!validateEmail(userEmail));
+  };
+
+  const checkMessageInput = (event) => {
+    checkSendButton();
+    setMessageError(event.target.value.trim() === "");
+  };
+
+  const checkSendButton = () => {
+    let name = document.querySelector("#visitor-name").value;
+    let email = document.querySelector("#visitor-email").value;
+    let message = document.querySelector("#visitor-message").value;
+    let check = name !== "" && validateEmail(email) && message !== "";
+    let sendButton = document.querySelector("#send-button");
+    if (!check) {
+      if (sendButton.classList.contains("not-available")) return;
+      sendButton.classList.add("not-available");
+      return;
+    }
+    sendButton.classList.remove("not-available");
+    return;
+  };
+
+  const startSendAnimation = () => {
+    if (document.querySelector("#send-button")) document.querySelector("#send-button").classList.add("hidden");
+    setMessageSent(true);
+  }
+
+  const endSendAnimation = () => {
+    setMessageSent(false);
+    console.log(document.querySelector("#send-button"));
+    if (document.querySelector("#send-button")) document.querySelector("#send-button").classList.remove("hidden");
   };
 
   const sendMessage = () => {
     let name = document.querySelector("#visitor-name").value;
     let email = document.querySelector("#visitor-email").value;
     let message = document.querySelector("#visitor-message").value;
-    console.log(name, email, message);
+    let emailData = {
+      from_name: name,
+      from_email: email,
+      message: message,
+    };
+    // setTimeout(() => {
+    //   startSendAnimation();
+    // }, 500)
+    // setTimeout(() => {
+    //   endSendAnimation();
+    // }, 10000);
+
+    emailjs
+      .send(
+        "personal_website",
+        "personal_website_temp",
+        emailData,
+        "user_KBxp72QJaUNv8nJzbiWe9"
+      )
+      .then(
+        (result) => {
+          resetContactForm();
+          checkSendButton();
+          setTimeout(() => {
+            startSendAnimation();
+          }, 500)
+          setTimeout(() => {
+            endSendAnimation();
+          }, 10000);
+          console.log(result);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+
+  const resetContactForm = () => {
+    document.querySelector("#visitor-name").value = "";
+    document.querySelector("#visitor-email").value = "";
+    document.querySelector("#visitor-message").value = "";
   };
 
   return (
-    <div id="about-me-outter-wrap">
+    <div id="about-me-ouftter-wrap">
       <div id="about-me-div">
         <div
           className="paragraph-div"
@@ -51,7 +135,8 @@ const AboutMe = () => {
           data-aos-easing="ease"
         >
           <h2 className="section-paragraph section-name">
-            Hello<small>,</small>My name is MingJie Wang.
+            Hello<small>,</small>My name is <br />
+            <span className="name-text">MINGJIE WANG</span>.
           </h2>
         </div>
 
@@ -96,10 +181,11 @@ const AboutMe = () => {
           data-aos-easing="ease"
         >
           <h2 className="section-paragraph section-text">
-            I believe in the notion of <br />
-            <span className="notion-text"> &lt;LESS is MORE&gt;</span>. <br />
-            All my <span className="cross-text">outfit</span> work reflect my
-            addiction of <span className="minimalism-text">Minimalism</span>.
+            I believe
+            <span className="name-text"> LESS is MORE </span>. <br />
+            All of my <span className="cross-text">outfit</span> work <br />{" "}
+            reflect my addiction of{" "}
+            <span className="minimalism-text">Minimalism</span>.
           </h2>
         </div>
 
@@ -111,7 +197,7 @@ const AboutMe = () => {
           data-aos-easing="ease"
         >
           <h2 className="section-paragraph section-text">
-            I am constantly{" "}
+            I am constantly <br />
             <span className="level-up-text">
               <span>l</span>
               <span>e</span>
@@ -123,13 +209,13 @@ const AboutMe = () => {
               <span>g</span> <span>u</span>
               <span>p</span>
             </span>{" "}
-            my tech skills. <br />
+            my skills. <br />
             <div className="focus">
               <div className="focus--mask">
                 <div className="focus--mask-inner">FOCUSING</div>
               </div>
             </div>{" "}
-            on front-end skills at this moment.
+            on front-end at this moment.
           </h2>
         </div>
 
@@ -141,10 +227,10 @@ const AboutMe = () => {
           data-aos-easing="ease"
         >
           <h2 className="section-paragraph section-text">
-            My goal is to <span className="cross-text">at least know</span>{" "}
-            <br /> <span className="love-text">LOVE</span> what I am doing and{" "}
-            <span className="cross-text">don't mess it up</span> <br />
-            take it to ANOTHER level.
+            My goal is to <span className="cross-text">know</span>{" "}
+            <span className="love-text">LOVE</span> what I am doing and{" "}
+            <span className="cross-text">don't mess it up </span>
+            take it to <span className="love-text">ANOTHER LEVEL.</span>
           </h2>
         </div>
       </div>
@@ -370,7 +456,9 @@ const AboutMe = () => {
                   </div>
                 </div>
                 <div className="work-section-small-detail">
-                  <div className="work-section-small-detail-dot">*</div>
+                  <div className="work-section-small-detail-dot tech-dot">
+                    *
+                  </div>
                   <div className="work-section-small-detail-text">
                     Front end UI using FusionJS <br />
                     Widget using JavaScript <br />
@@ -430,9 +518,11 @@ const AboutMe = () => {
                   </div>
                 </div>
                 <div className="work-section-small-detail">
-                  <div className="work-section-small-detail-dot">*</div>
+                  <div className="work-section-small-detail-dot tech-dot">
+                    *
+                  </div>
                   <div className="work-section-small-detail-text">
-                    Front end using Angular2+ <br />
+                    Front end using Angular 2+ <br />
                     Static Content using AEM{" "}
                     <span className="small-text">
                       (Adobe Experience Manager)
@@ -505,7 +595,9 @@ const AboutMe = () => {
                   </div>
                 </div>
                 <div className="work-section-small-detail">
-                  <div className="work-section-small-detail-dot">*</div>
+                  <div className="work-section-small-detail-dot tech-dot">
+                    *
+                  </div>
                   <div className="work-section-small-detail-text">
                     Implemented via IDM and Forgerock
                   </div>
@@ -590,7 +682,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -680,7 +772,7 @@ const AboutMe = () => {
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
               <div className="work-section-detail">
-                Developed Python application to extra prominent and relevant
+                Developed a Python application to extra prominent and relevant
                 information from 100+ Economist resumes from the United States
                 and Russia to gather data for analyzing economic backgrounds
                 between the two countries
@@ -759,7 +851,7 @@ const AboutMe = () => {
         >
           <h2 className="section-paragraph work-section-text">
             <div className="work-section-row">
-              <div className="work-section-dot">*</div>
+              <div className="work-section-dot tech-dot">*</div>
               <div className="work-section-detail">
                 Tech Stacks: Python - Tensorflow2
               </div>
@@ -782,7 +874,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -795,13 +887,13 @@ const AboutMe = () => {
                 <div className="work-section-small-detail">
                   <div className="work-section-small-detail-dot">-</div>
                   <div className="work-section-small-detail-text">
-                    Creating and Maintaining lease;
+                    Creating and Maintaining lease
                   </div>
                 </div>
                 <div className="work-section-small-detail">
                   <div className="work-section-small-detail-dot">-</div>
                   <div className="work-section-small-detail-text">
-                    Rent Payment;
+                    Rent Payment
                   </div>
                 </div>
                 <div className="work-section-small-detail">
@@ -866,29 +958,37 @@ const AboutMe = () => {
         >
           <h2 className="section-paragraph work-section-text">
             <div className="work-section-row">
-              <div className="work-section-dot">*</div>
+              <div className="work-section-dot tech-dot">*</div>
               <div className="work-section-detail">
                 Tech Stacks:
                 <div className="work-section-small-detail">
-                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-dot tech-dot">
+                    -
+                  </div>
                   <div className="work-section-small-detail-text">
                     Front end: Angular 2+
                   </div>
                 </div>
                 <div className="work-section-small-detail">
-                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-dot tech-dot">
+                    -
+                  </div>
                   <div className="work-section-small-detail-text">
                     Back end: Spring Boot Framework
                   </div>
                 </div>
                 <div className="work-section-small-detail">
-                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-dot tech-dot">
+                    -
+                  </div>
                   <div className="work-section-small-detail-text">
                     Data base: PostgreSQL
                   </div>
                 </div>
                 <div className="work-section-small-detail">
-                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-dot tech-dot">
+                    -
+                  </div>
                   <div className="work-section-small-detail-text">
                     Host: AWS
                   </div>
@@ -954,7 +1054,7 @@ const AboutMe = () => {
         >
           <h2 className="section-paragraph work-section-text">
             <div className="work-section-row">
-              <div className="work-section-dot">*</div>
+              <div className="work-section-dot tech-dot">*</div>
               <div className="work-section-detail">
                 Tech Stacks: Java, MySQL & Python
               </div>
@@ -1034,7 +1134,7 @@ const AboutMe = () => {
         >
           <h2 className="section-paragraph work-section-text">
             <div className="work-section-row">
-              <div className="work-section-dot">*</div>
+              <div className="work-section-dot tech-dot">*</div>
               <div className="work-section-detail">
                 Tech Stacks: Python - Tensorflow1
               </div>
@@ -1047,13 +1147,13 @@ const AboutMe = () => {
         <div
           className="paragraph-div"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
           <h1 className="section-paragraph section-title">
             <small> (005) </small> <br />
-            WANNA JOIN THE <span className="squad-text">SQUAD</span>
+            WANNA TALK TO THE <span className="squad-text">SQUAD</span> ?
           </h1>
         </div>
 
@@ -1071,8 +1171,19 @@ const AboutMe = () => {
               </h2>
             </div>
             <div className="input-box-div">
-              <input id="visitor-name" className="input-box" />
+              <input
+                id="visitor-name"
+                className="input-box"
+                onKeyUp={(e) => checkNameInput(e)}
+              />
             </div>
+          </div>
+          <div
+            className={
+              nameError ? "section-paragraph" : "section-paragraph hidden"
+            }
+          >
+            <h2 className="error-text">Please enter your name</h2>
           </div>
         </div>
 
@@ -1097,10 +1208,17 @@ const AboutMe = () => {
               />
             </div>
           </div>
+          <div
+            className={
+              emailError ? "section-paragraph" : "section-paragraph hidden"
+            }
+          >
+            <h2 className="error-text">Please enter a valid email</h2>
+          </div>
         </div>
 
         <div
-          className="paragraph-div mt12vh mb5vh"
+          className="paragraph-div mt5vh mb5vh"
           data-aos="zoom-out-up"
           data-aos-anchor-placement="top-center"
           data-aos-duration="600"
@@ -1113,36 +1231,167 @@ const AboutMe = () => {
               </h2>
             </div>
             <div className="textbox-div">
-              <textarea id="visitor-message" className="text-area-box" />
+              <textarea
+                id="visitor-message"
+                onChange={(e) => checkMessageInput(e)}
+                className="text-area-box"
+              />
             </div>
+          </div>
+          <div
+            className={
+              messageError ? "section-paragraph" : "section-paragraph hidden"
+            }
+          >
+            <h2 className="error-text">
+              Please write down some words you want to say to me
+            </h2>
           </div>
         </div>
 
         <div
-          className="paragraph-div mt5vh mb5vh button-div"
+          className="paragraph-div mt3vh mb3vh button-div"
           data-aos="zoom-out-up"
           data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
-          <span className="send-text not-available" onClick={sendMessage}>
-            SEND
-          </span>
+          {!messageSent ? (
+            <span
+              id="send-button"
+              className="send-text not-available"
+              onClick={sendMessage}
+            >
+              SEND
+            </span>
+          ) : (
+            <span id="send-animation-span" className="send-animation">
+              <lottie-player
+                src={window.location.origin + "/static/lottie/send.json"}
+                background="transparent"
+                speed="0.8"
+                autoplay
+              ></lottie-player>
+            </span>
+          )}
+        </div>
+
+        <div className="paragraph-div mt5vh mb3vh sent-message-div">
+          <div
+            className={
+              messageSent ? "section-paragraph" : "section-paragraph hidden"
+            }
+          >
+            <h2 className="error-text pink-color">
+              Message Sent! <br />I will get back to you ASAP!
+            </h2>
+          </div>
         </div>
       </div>
 
       <div>
         <div
-          className="paragraph-div"
+          className="paragraph-div mb5vh"
           data-aos="zoom-out-up"
           data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
           <h1 className="section-paragraph section-title">
-            <small> (005) </small> <br />
-            WANNA TALK?
+            <small> (006) </small> <br />
+            HOW CAN I STALK YOU?
           </h1>
+        </div>
+
+        <div
+          className="paragraph-div mt3vh mb3vh social-media-row"
+          data-aos="zoom-out-up"
+          data-aos-anchor-placement="bottom-bottom"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <div className="my-github-wrapper">
+            <span className="stalk-text">GITHUB</span>
+            <a
+              className="contatct-link"
+              href="https://github.com/mingjiew97"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <lottie-player
+                src={window.location.origin + "/static/lottie/github.json"}
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+              ></lottie-player>
+            </a>
+          </div>
+          <div className="my-facebook-wrapper">
+            <span className="stalk-text">FACEBOOK</span>
+            <a
+              className="contatct-link"
+              href="https://www.facebook.com/profile.php?id=100005185428504"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <lottie-player
+                src={window.location.origin + "/static/lottie/facebook.json"}
+                background="transparent"
+                speed="1"
+                loop
+                autoplay
+              ></lottie-player>
+            </a>
+          </div>
+          <div className="my-linkedin-wrapper">
+            <span className="stalk-text">LINKEDIN</span>
+            <a
+              className="contatct-link"
+              href="https://www.linkedin.com/in/frank-wong-licentious0907/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <lottie-player
+                src={window.location.origin + "/static/lottie/linkedin.json"}
+                background="transparent"
+                speed="1.5"
+                loop
+                autoplay
+              ></lottie-player>
+            </a>
+          </div>
+          <div className="my-wechat-wrapper">
+            <span className="stalk-text">WECHAT</span>
+            <Popup
+              trigger={
+                <lottie-player
+                  src={window.location.origin + "/static/lottie/wechat.json"}
+                  mode="bounce"
+                  background="transparent"
+                  speed="1"
+                  loop
+                  autoplay
+                ></lottie-player>
+              }
+              modal
+            >
+              {(close) => (
+                <div className="modal">
+                  <button className="close" onClick={close}>
+                    &times;
+                  </button>
+                  <img
+                    className="qrcode"
+                    src={
+                      window.location.origin + "/static/image/wechat-qrcode.png"
+                    }
+                    alt="wechat-qrcode"
+                  />
+                </div>
+              )}
+            </Popup>
+          </div>
         </div>
       </div>
     </div>

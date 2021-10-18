@@ -26,11 +26,20 @@
     color: white;
     font-weight: bolder;
     font-family: "raleway";
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s ease-in;
+  }
+
+  .section-paragraph.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in;
   }
 
   .section-title {
     font-size: 10vw;
-    color: pink;
+    color: lightcyan;
     letter-spacing: 0.5vw;
   }
 
@@ -50,7 +59,7 @@
   .cross-text {
     font-style: italic;
     text-decoration: line-through;
-    color: lightsalmon;
+    color: grey;
   }
 
   .notion-text {
@@ -65,14 +74,14 @@
 
   .thingspace-link {
     text-decoration: none;
-    color: white;
+    color: #d6001c;
     border-bottom: 0.25vw solid currentColor;
   }
 
   .minimalism-text {
-    color: grey;
+    color: lightsalmon;
     font-family: "Major Mono Display", monospace;
-    font-size: 4.5vw;
+    font-size: 5.5vw;
   }
 
   .level-up-text {
@@ -114,14 +123,16 @@
   }
 
   .love-text {
-    font-family: "Major Mono Display", monospace;
-    font-size: 5.5vw;
+    font-family: "suicideSquadFont";
     color: pink;
+    font-weight: normal;
   }
 
   .awesome-text {
-    font-family: "Major Mono Display", monospace;
-    font-size: 9vw;
+    font-family: "suicideSquadFont";
+    font-weight: normal;
+    color: pink;
+    font-size: 10vw;
   }
 
   .more-section-text {
@@ -268,6 +279,16 @@
     }
   }
 
+  .tech-dot {
+    color: blueviolet;
+  }
+
+  .name-text {
+    font-family: "suicideSquadFont";
+    color: lightsalmon;
+    font-weight: normal;
+  }
+
   .squad-text {
     font-weight: normal;
     font-family: "suicideSquadFont";
@@ -282,7 +303,7 @@
       flex: 60%;
     }
     .textbox-div {
-      padding-left: 3vw;
+      padding-left: 7vw;
       flex: 60%;
     }
   }
@@ -316,10 +337,30 @@
   }
 }
 
+.error-text {
+  float: right;
+  color: red;
+  font-weight: normal;
+  font-family: "suicideSquadFont";
+  font-size: 2.5vw;
+}
+.pink-color {
+  color: pink;
+  font-size: 3vw;
+}
+
 .button-div {
   cursor: pointer;
   float: right;
   margin-right: 10vw;
+}
+
+.sent-message-div {
+  padding: 5vw 1vw 0vw 1vw;
+  margin-right: 10vw;
+}
+.full-width {
+  width: 100%;
 }
 
 .send-text {
@@ -329,10 +370,138 @@
   font-family: "suicideSquadFont";
   font-size: 5vw;
   padding: 1vw 1vw 0vw 1vw;
+  transition: all 0.5s ease-in;
 }
 
 .not-available {
   opacity: 0.5;
+  transition: all 0.5s ease-in;
+}
+
+.send-animation {
+  background-color: transparent;
+  width: 10vw;
+  height: 10vw;
+  // transition: all 0.5s ease-in;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in;
+}
+
+.stalk-text {
+  padding-left: 2vw;
+  color: pink;
+  font-size: 4vw;
+  font-weight: normal;
+  font-family: "raleway";
+}
+
+.social-media-row {
+  display: inline-block;
+}
+
+.my-github-wrapper {
+  margin: 0 3vw 0vw 10vw;
+  display: inline-block;
+  width: 20vw;
+  height: 20vw;
+}
+
+.my-wechat-wrapper {
+  margin: 0 3vw 0vw 10vw;
+  display: inline-block;
+  lottie-player {
+    margin: 3vw;
+    width: 17vw;
+    height: 17vw;
+  }
+}
+
+.my-facebook-wrapper {
+  margin: 3vw;
+  display: inline-block;
+  lottie-player {
+    margin: 3vw;
+    width: 17vw;
+    height: 17vw;
+  }
+}
+
+.my-linkedin-wrapper {
+  margin: 3vw;
+  display: inline-block;
+  lottie-player {
+    margin: 3vw;
+    width: 17vw;
+    height: 17vw;
+  }
+}
+
+.contatct-link {
+  text-decoration: none;
+}
+
+.popup-content {
+  margin: 0;
+  background: black;
+  width: 40vw;
+  height: 40vw;
+  padding: 0;
+  border: none;
+  -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+}
+
+.modal > .close {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  padding: 2px 5px;
+  line-height: 20px;
+  right: -10px;
+  top: -10px;
+  font-size: 24px;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #cfcece;
+}
+
+.qrcode {
+  width: 40vw;
+  height: 40vw;
+}
+
+@media (max-width: 600px) {
+  .popup-content {
+    width: 60vw;
+    height: 60vw;
+  }
+
+  .qrcode {
+    width: 60vw;
+    height: 60vw;
+  }
+}
+
+
+@keyframes anvil {
+  0% {
+    transform: scale(1) translateY(0px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  1% {
+    transform: scale(0.96) translateY(10px);
+    opacity: 0;
+    box-shadow: 0 0 0 rgba(241, 241, 241, 0);
+  }
+  100% {
+    transform: scale(1) translateY(0px);
+    opacity: 1;
+    box-shadow: 0 0 500px rgba(241, 241, 241, 0);
+  }
 }
 
 .mt5vh {
