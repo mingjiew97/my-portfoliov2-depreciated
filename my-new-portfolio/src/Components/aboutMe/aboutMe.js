@@ -54,14 +54,16 @@ const AboutMe = () => {
   };
 
   const startSendAnimation = () => {
-    if (document.querySelector("#send-button")) document.querySelector("#send-button").classList.add("hidden");
+    if (document.querySelector("#send-button"))
+      document.querySelector("#send-button").classList.add("hidden");
     setMessageSent(true);
-  }
+  };
 
   const endSendAnimation = () => {
     setMessageSent(false);
     console.log(document.querySelector("#send-button"));
-    if (document.querySelector("#send-button")) document.querySelector("#send-button").classList.remove("hidden");
+    if (document.querySelector("#send-button"))
+      document.querySelector("#send-button").classList.remove("hidden");
   };
 
   const sendMessage = () => {
@@ -93,7 +95,7 @@ const AboutMe = () => {
           checkSendButton();
           setTimeout(() => {
             startSendAnimation();
-          }, 500)
+          }, 500);
           setTimeout(() => {
             endSendAnimation();
           }, 10000);
@@ -421,7 +423,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt5vh mb5vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -439,7 +441,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -474,7 +476,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt10vh mb5vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -492,7 +494,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1289,11 +1291,11 @@ const AboutMe = () => {
         </div>
       </div>
 
-      <div>
+      <div id="stalk-you">
         <div
           className="paragraph-div mb5vh"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="bottom-bottom"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1393,6 +1395,35 @@ const AboutMe = () => {
             </Popup>
           </div>
         </div>
+      </div>
+
+      <div id="easter-egg">
+        <div
+          className="paragraph-div"
+          data-aos="zoom-out-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <h1 className="section-paragraph section-title">
+            <small> (007) </small> <br />
+            <span className="squad-text">EASTER EGG</span>
+          </h1>
+        </div>
+
+        {/* <div
+          className="paragraph-div"
+          data-aos="zoom-out-up"
+          data-aos-anchor-placement="top-bottom"
+          data-aos-duration="600"
+          data-aos-easing="ease"
+        >
+          <img
+            className="qrcode"
+            src={window.location.origin + "/static/image/wechat-qrcode.png"}
+            alt="wechat-qrcode"
+          />
+        </div> */}
       </div>
     </div>
   );
