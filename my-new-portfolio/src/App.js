@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PageEnterAnimation from "./Components/pageEnterAnimation/pageEnterAnimation";
 import ScrollDown from "./Components/scrollDown/scrollDown";
 import AboutMe from "./Components/aboutMe/aboutMe";
+import ScrollBar from "./Components/scrollBar/scrollBar";
 import "./App.scss";
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
 
   return (
     <div className="full-page-container">
+      <ScrollBar />
       <div>
         <PageEnterAnimation
           showContent={() => showContent()}

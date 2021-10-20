@@ -75,12 +75,6 @@ const AboutMe = () => {
       from_email: email,
       message: message,
     };
-    // setTimeout(() => {
-    //   startSendAnimation();
-    // }, 500)
-    // setTimeout(() => {
-    //   endSendAnimation();
-    // }, 10000);
 
     emailjs
       .send(
@@ -114,7 +108,7 @@ const AboutMe = () => {
   };
 
   return (
-    <div id="about-me-ouftter-wrap">
+    <div id="about-me-outter-wrap">
       <div id="about-me-div">
         <div
           className="paragraph-div"
@@ -1149,20 +1143,20 @@ const AboutMe = () => {
         <div
           className="paragraph-div"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="bottom-bottom"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
           <h1 className="section-paragraph section-title">
             <small> (005) </small> <br />
-            WANNA TALK TO THE <span className="squad-text">SQUAD</span> ?
+            WANNA TALK TO THE <span className="squad-text">SQUAD</span>?
           </h1>
         </div>
 
         <div
           className="paragraph-div mt5vh mb5vh"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="bottom-bottom"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1192,7 +1186,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt5vh mb5vh"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="bottom-bottom"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1222,7 +1216,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt5vh mb5vh"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="bottom-bottom"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1254,7 +1248,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh button-div"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="bottom-bottom"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1306,7 +1300,7 @@ const AboutMe = () => {
         </div>
 
         <div
-          className="paragraph-div mt3vh mb3vh social-media-row"
+          className="paragraph-div mt3vh mb10vh social-media-row"
           data-aos="zoom-out-up"
           data-aos-anchor-placement="bottom-bottom"
           data-aos-duration="600"
@@ -1397,7 +1391,7 @@ const AboutMe = () => {
         </div>
       </div>
 
-      <div id="easter-egg">
+      {/* <div id="easter-egg">
         <div
           className="paragraph-div"
           data-aos="zoom-out-up"
@@ -1411,7 +1405,7 @@ const AboutMe = () => {
           </h1>
         </div>
 
-        {/* <div
+        <div
           className="paragraph-div"
           data-aos="zoom-out-up"
           data-aos-anchor-placement="top-bottom"
@@ -1423,8 +1417,8 @@ const AboutMe = () => {
             src={window.location.origin + "/static/image/wechat-qrcode.png"}
             alt="wechat-qrcode"
           />
-        </div> */}
-      </div>
+        </div>
+      </div> */}
     </div>
   );
 };
