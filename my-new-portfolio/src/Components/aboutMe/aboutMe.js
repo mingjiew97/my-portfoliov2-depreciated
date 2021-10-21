@@ -113,7 +113,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div"
           data-aos="fade-up"
-          data-aos-anchor-placement="top-center"
+          data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -172,7 +172,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt5vh mb5vh"
           data-aos="fade-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -188,7 +188,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt5vh mb5vh"
           data-aos="fade-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -218,7 +218,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt5vh mb5vh"
           data-aos="fade-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -417,7 +417,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt5vh mb5vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -435,7 +435,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -470,7 +470,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt10vh mb5vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -488,7 +488,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -574,7 +574,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -606,7 +606,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -623,7 +623,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -640,7 +640,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -678,7 +678,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -713,7 +713,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="flip-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -807,7 +807,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -824,7 +824,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -841,7 +841,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -870,7 +870,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -912,7 +912,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -930,7 +930,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1009,7 +1009,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1027,7 +1027,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1044,7 +1044,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1073,7 +1073,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1091,7 +1091,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1109,7 +1109,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1124,7 +1124,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb3vh"
           data-aos="fade-down-right"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1143,7 +1143,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="bottom-bottom"
+          data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1289,7 +1289,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mb5vh"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="bottom-bottom"
+          data-aos-anchor-placement="center-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1302,7 +1302,7 @@ const AboutMe = () => {
         <div
           className="paragraph-div mt3vh mb10vh social-media-row"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="bottom-bottom"
+          data-aos-anchor-placement="center-bottom"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
