@@ -7,7 +7,8 @@ import AOS from "aos";
 import "./aboutMe.scss";
 import "aos/dist/aos.css";
 
-const AboutMe = () => {
+const AboutMe = (props) => {
+
   useEffect(() => {
     AOS.init();
   }, []);

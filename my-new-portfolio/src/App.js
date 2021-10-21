@@ -8,6 +8,7 @@ import "./App.scss";
 const App = () => {
   const [display, setDisplay] = useState(false);
   const [displayScrollDown, setDisplayScrollDown] = useState(false);
+  const [fullyLoaded, setFullyLoaded] = useState(false);
 
   const showContent = () => {
     setDisplay(true);
@@ -29,9 +30,13 @@ const App = () => {
         document.body.scrollTop || document.documentElement.scrollTop;
 
       if (winScroll > heightToHideFrom) {
-        if (displayScrollDown) setDisplayScrollDown(false);
+        if (displayScrollDown) {
+          setDisplayScrollDown(false);
+          setFullyLoaded(true);
+        }
       } else {
         setDisplayScrollDown(true);
+        setFullyLoaded(false);
       }
     };
 
@@ -43,7 +48,8 @@ const App = () => {
 
   return (
     <div className="full-page-container">
-      <ScrollBar />
+      <ScrollBar shouldDisplay={fullyLoaded} /> 
+
       <div>
         <PageEnterAnimation
           showContent={() => showContent()}
