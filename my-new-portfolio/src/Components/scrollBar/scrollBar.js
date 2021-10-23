@@ -18,12 +18,17 @@ const ScrollBar = (props) => {
   });
 
   return (
-    <progress
-      value="40"
-      max="100"
-      id="progressBar"
-      className={"scrollDownWrapper " + (displayScrollBar ? "active" : "")}
-    />
+    <div className="progress">
+      <div className="bar">
+        <div className="bar__fill"></div>
+        <div className="bar__fill2"></div>
+        {/* <div className="bar__fill"></div>
+        <div className="bar__fill"></div>
+        <div className="bar__fill"></div>
+        <div className="bar__fill"></div>
+        <div className="bar__fill"></div> */}
+      </div>
+    </div>
   );
 };
 
