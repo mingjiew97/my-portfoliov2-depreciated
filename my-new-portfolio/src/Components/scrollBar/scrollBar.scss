@@ -1,43 +1,3 @@
-// progress[value] {
-//   /* Positioning */
-//   position: fixed;
-
-//   /* Dimensions */
-//   width: 100vh;
-//   height: 0.25em;
-
-//   /* Reset the apperance */
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-
-//   /* Get rid of the default border in Firefox/Opera. */
-//   border: none;
-
-//   /* For Firefox/IE10+ */
-//   background-color: transparent;
-
-//   /* For IE10+, color of the progress bar */
-//   color: red;
-
-//   -webkit-transform-origin: 0 100%;
-//   -webkit-transform: rotate(90deg);
-//   -moz-transform-origin: 0 100%;
-//   -moz-transform: rotate(90deg);
-//   -ms-transform-origin: 0 100%;
-//   -ms-transform: rotate(90deg);
-//   transform-origin: 0 100%;
-//   transform: rotate(90deg);
-// }
-
-// progress[value]::-moz-progress-bar {
-//   background-color: red;
-// }
-
-// progress[value]::-webkit-progress-value {
-//   background-color: red;
-// }
-
 .progress {
   position: relative;
   display: flex;
@@ -45,11 +5,19 @@
   justify-content: space-between;
   // width: 100%;
   height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in;
+}
+
+.progress.active {
+  visibility: visible;
+  opacity: 1;
 }
 
 .bar {
   position: fixed;
-  left: 0;
+  left: 8px;
   background: #e8dfd8;
   width: 3px;
   height: 100vh;
@@ -67,4 +35,74 @@
   display: block;
   background: red;
   height: 50%;
+}
+
+
+.point {
+  position: relative;
+  color: #AC9585;
+  cursor: pointer;
+  margin-top: 200px;
+  left: 6px;
+}
+.point:before {
+  content: "";
+  position: absolute;
+  // top: 50%;
+  // left: 50%;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  // transform: translate(-50%, -50%);
+  transition: 0.3s ease;
+}
+.show-radius .point:before {
+  background: rgba(0, 0, 0, 0.1);
+}
+.point--complete, .point--active {
+  color: #BA7C3F;
+}
+
+.bullet {
+  z-index: 1;
+  position: relative;
+  background: #AC9585;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  transition: 0.3s ease;
+}
+.point--complete .bullet, .point--active .bullet {
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 6px #BD8044;
+}
+.point--active .bullet {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 10px #BD8044;
+}
+
+.label {
+  position: absolute;
+  // top: 100%;
+  left: 15px;
+  // margin: 20px 0 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  // transform: translate(-50%, 0);
+}
+
+.radius-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: block;
+  background: #FFF;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 40px 0 65px rgba(212, 197, 186, 0.4);
+  padding: 10px;
+  color: #BA7C3F;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }

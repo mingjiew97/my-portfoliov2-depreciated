@@ -18,7 +18,7 @@ const ScrollBar = (props) => {
   });
 
   return (
-    <div className="progress">
+    <div className={"progress " + (displayScrollBar ? "active" : "active")}>
       <div className="bar">
         <div className="bar__fill"></div>
         <div className="bar__fill2"></div>
@@ -27,6 +27,14 @@ const ScrollBar = (props) => {
         <div className="bar__fill"></div>
         <div className="bar__fill"></div>
         <div className="bar__fill"></div> */}
+      </div>
+      <div class="point point--complete">
+        <div class="bullet"></div>
+        <label class="label">Select</label>
+      </div>
+      <div class="point point--complete">
+        <div class="bullet"></div>
+        <label class="label">Review</label>
       </div>
     </div>
   );
