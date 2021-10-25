@@ -4,13 +4,13 @@ import "./scrollBar.scss";
 const ScrollBar = (props) => {
   let displayScrollBar = props.shouldDisplay;
   const viewWindowHeight = window.innerHeight;
-  console.log(viewWindowHeight);
+  console.log(`windowHeight: ${viewWindowHeight}`);
   const [sectionHeightArr, setSectionHeightArr] = React.useState([]);
+  const barFillRef = React.useRef(null);
 
   const initScrollBar = () => {
     if (!document.querySelector("#about-me-outter-wrap")) return;
     let documentHeight = document.documentElement.scrollHeight;
-    console.log(documentHeight);
     let tempSectionHeightArr = [];
     let aboutMeWrapperDiv = document.querySelectorAll(
       "#about-me-outter-wrap > div"
@@ -18,61 +18,97 @@ const ScrollBar = (props) => {
     let currentHeight = 0;
     aboutMeWrapperDiv.forEach((divElement, index) => {
       if (index === 0) {
-        let elementToTop =
-          window.pageYOffset + divElement.getBoundingClientRect().top;
         tempSectionHeightArr.push({
-          elementHeight: 0,
+          elementHeight: "0px",
+          elementIndex: "-∞",
           elementName: "welcomeSentence",
         });
+        currentHeight += window.innerHeight;
       }
-      currentHeight += divElement.scrollHeight;
       tempSectionHeightArr.push({
-        elementHeight: currentHeight/documentHeight,
+        elementHeight: `${(
+          (currentHeight / documentHeight) *
+          viewWindowHeight
+        ).toFixed(2)}px`,
+        elementIndex: `00${String(index + 1)}`,
         elementName: divElement.id,
       });
+      currentHeight += divElement.scrollHeight;
     });
-    if ( JSON.stringify(tempSectionHeightArr) === JSON.stringify(sectionHeightArr) ) {
-      console.log('test');
-      return;
-    };
+    tempSectionHeightArr.push({
+      elementHeight: `${viewWindowHeight}px`,
+      elementIndex: `∞`,
+      elementName: `end`,
+    });
+    console.log(tempSectionHeightArr);
     setSectionHeightArr(tempSectionHeightArr);
-    // console.log(tempSectionHeightArr ==);
-    
   };
 
   React.useEffect(() => {
-    initScrollBar();
+    if (sectionHeightArr.length === 0) {
+      initScrollBar();
+    }
+    window.addEventListener("scroll", pageScrollFunc);
+    window.addEventListener("resize", initScrollBar);
+    return (_) => {
+      window.removeEventListener("resize", initScrollBar);
+      window.removeEventListener("scroll", pageScrollFunc);
+    };
   });
+
+  const pageJumpFunc = (index, elementId) => {
+    console.log(index, elementId);
+    if (index === 0) {
+      window.scrollTo(0, 0);
+    } else if (index === sectionHeightArr.length - 1) {
+      window.scrollTo(0, document.body.scrollHeight);
+    } else {
+      document.querySelector(`#${elementId}`).scrollIntoView();
+    }
+  };
+
+  const pageScrollFunc = () => {
+    let currentPosition = window.pageYOffset;
+    let documentHeight = document.documentElement.scrollHeight;
+    let currentPercentage = (currentPosition / documentHeight * 100).toFixed(2);
+    barFillRef.current.style.height = `${currentPercentage}%`;
+
+    for (let index = 0; index < sectionHeightArr.length; index++) {
+      let currentElement = sectionHeightArr[index];
+      let pointDiv = document.querySelector(`#scrollBarPoint${index}`);
+      if (currentPosition >= currentElement.elementHeight) {
+        pointDiv.classList.add('point--complete');
+      } else {
+        pointDiv.classList.remove('point--complete');
+        pointDiv.classList.add('point--active');
+        break;
+      }
+    }
+  };
 
   return (
     <div className={"progress " + (displayScrollBar ? "active" : "active")}>
       <div className="bar">
-        <div className="bar__fill"></div>
-        <div className="bar__fill2"></div>
-        {/* <div className="bar__fill"></div>
-        <div className="bar__fill"></div>
-        <div className="bar__fill"></div>
-        <div className="bar__fill"></div>
-        <div className="bar__fill"></div> */}
+        <div className="bar__fill" ref={barFillRef} />
       </div>
       <div className="point-group">
         {sectionHeightArr.map((el, index) => {
           return (
-            <div className="point point--complete" key={el.elementName} style={{"padding-top": viewWindowHeight * el.elementHeight}}>
+            <div
+              className="point"
+              id={`scrollBarPoint${index}`}
+              key={el.elementName}
+              style={{ marginTop: el.elementHeight }}
+              onClick={() => {
+                pageJumpFunc(index, el.elementName);
+              }}
+            >
               <div className="bullet"></div>
-              <label className="label">{index}</label>
+              <label className="label">{el.elementIndex}</label>
             </div>
           );
         })}
       </div>
-      {/* <div className="point point--complete">
-        <div className="bullet"></div>
-        <label className="label">Select</label>
-      </div>
-      <div className="point point--complete">
-        <div className="bullet"></div>
-        <label className="label">Review</label>
-      </div> */}
     </div>
   );
 };
