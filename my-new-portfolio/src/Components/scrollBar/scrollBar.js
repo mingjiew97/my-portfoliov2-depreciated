@@ -3,18 +3,45 @@ import "./scrollBar.scss";
 
 const ScrollBar = (props) => {
   let displayScrollBar = props.shouldDisplay;
+  const viewWindowHeight = window.innerHeight;
+  console.log(viewWindowHeight);
+  const [sectionHeightArr, setSectionHeightArr] = React.useState([]);
+
+  const initScrollBar = () => {
+    if (!document.querySelector("#about-me-outter-wrap")) return;
+    let documentHeight = document.documentElement.scrollHeight;
+    console.log(documentHeight);
+    let tempSectionHeightArr = [];
+    let aboutMeWrapperDiv = document.querySelectorAll(
+      "#about-me-outter-wrap > div"
+    );
+    let currentHeight = 0;
+    aboutMeWrapperDiv.forEach((divElement, index) => {
+      if (index === 0) {
+        let elementToTop =
+          window.pageYOffset + divElement.getBoundingClientRect().top;
+        tempSectionHeightArr.push({
+          elementHeight: 0,
+          elementName: "welcomeSentence",
+        });
+      }
+      currentHeight += divElement.scrollHeight;
+      tempSectionHeightArr.push({
+        elementHeight: currentHeight/documentHeight,
+        elementName: divElement.id,
+      });
+    });
+    if ( JSON.stringify(tempSectionHeightArr) === JSON.stringify(sectionHeightArr) ) {
+      console.log('test');
+      return;
+    };
+    setSectionHeightArr(tempSectionHeightArr);
+    // console.log(tempSectionHeightArr ==);
+    
+  };
 
   React.useEffect(() => {
-    console.log(window.document.body.offsetHeight);
-    console.log(window.innerHeight);
-    console.log(document.documentElement.scrollHeight);
-
-    let test = document.querySelector("#about-me-outter-wrap")?.scrollHeight;
-    console.log("test1");
-    console.log(test);
-    let test2 = document.querySelector("#about-me-div")?.scrollHeight;
-    console.log("test2");
-    console.log(test2);
+    initScrollBar();
   });
 
   return (
@@ -28,14 +55,24 @@ const ScrollBar = (props) => {
         <div className="bar__fill"></div>
         <div className="bar__fill"></div> */}
       </div>
-      <div class="point point--complete">
-        <div class="bullet"></div>
-        <label class="label">Select</label>
+      <div className="point-group">
+        {sectionHeightArr.map((el, index) => {
+          return (
+            <div className="point point--complete" key={el.elementName} style={{"padding-top": viewWindowHeight * el.elementHeight}}>
+              <div className="bullet"></div>
+              <label className="label">{index}</label>
+            </div>
+          );
+        })}
       </div>
-      <div class="point point--complete">
-        <div class="bullet"></div>
-        <label class="label">Review</label>
+      {/* <div className="point point--complete">
+        <div className="bullet"></div>
+        <label className="label">Select</label>
       </div>
+      <div className="point point--complete">
+        <div className="bullet"></div>
+        <label className="label">Review</label>
+      </div> */}
     </div>
   );
 };

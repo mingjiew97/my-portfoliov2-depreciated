@@ -39,21 +39,23 @@
 
 
 .point {
-  position: relative;
+  position: fixed;
   color: #AC9585;
   cursor: pointer;
-  margin-top: 200px;
+  display: block;
   left: 6px;
+  padding-top: 100px;
+  // transform: translate(0, 200px);
+}
+.point:nth-of-type(2) {
+  padding-top: 200px;
 }
 .point:before {
   content: "";
   position: absolute;
-  // top: 50%;
-  // left: 50%;
   width: 20px;
   height: 20px;
   border-radius: 100%;
-  // transform: translate(-50%, -50%);
   transition: 0.3s ease;
 }
 .show-radius .point:before {
