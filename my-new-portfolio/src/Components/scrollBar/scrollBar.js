@@ -22,6 +22,7 @@ const ScrollBar = (props) => {
           elementHeight: "0px",
           elementIndex: "-∞",
           elementName: "welcomeSentence",
+          accumulateHeight: currentHeight,
         });
         currentHeight += window.innerHeight;
       }
@@ -32,6 +33,7 @@ const ScrollBar = (props) => {
         ).toFixed(2)}px`,
         elementIndex: `00${String(index + 1)}`,
         elementName: divElement.id,
+        accumulateHeight: currentHeight,
       });
       currentHeight += divElement.scrollHeight;
     });
@@ -39,6 +41,7 @@ const ScrollBar = (props) => {
       elementHeight: `${viewWindowHeight}px`,
       elementIndex: `∞`,
       elementName: `end`,
+      accumulateHeight: currentHeight,
     });
     console.log(tempSectionHeightArr);
     setSectionHeightArr(tempSectionHeightArr);
@@ -72,11 +75,12 @@ const ScrollBar = (props) => {
     let documentHeight = document.documentElement.scrollHeight;
     let currentPercentage = (currentPosition / documentHeight * 100).toFixed(2);
     barFillRef.current.style.height = `${currentPercentage}%`;
-
+    console.log(`currentPosition: ${currentPosition}`);
     for (let index = 0; index < sectionHeightArr.length; index++) {
       let currentElement = sectionHeightArr[index];
       let pointDiv = document.querySelector(`#scrollBarPoint${index}`);
-      if (currentPosition >= currentElement.elementHeight) {
+      if (currentPosition >= currentElement.accumulateHeight) {
+        pointDiv.classList.remove('point--active');
         pointDiv.classList.add('point--complete');
       } else {
         pointDiv.classList.remove('point--complete');
