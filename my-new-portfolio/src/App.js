@@ -25,19 +25,11 @@ const App = () => {
   // hide the scroll down button when user scrolls down
   useEffect(() => {
     const hideScrollDown = () => {
-      let heightToHideFrom = 0.55 * window.innerHeight;
       const winScroll =
         document.body.scrollTop || document.documentElement.scrollTop;
 
-      if (winScroll > heightToHideFrom) {
-        if (displayScrollDown) {
-          setDisplayScrollDown(false);
-          setFullyLoaded(true);
-        }
-      } else {
-        setDisplayScrollDown(true);
-        setFullyLoaded(false);
-      }
+      (winScroll > 0.55 * window.innerHeight) ? setDisplayScrollDown(false) : setDisplayScrollDown(true);
+      (winScroll <= window.innerHeight) ? setFullyLoaded(false) : setFullyLoaded(true);
     };
 
     window.addEventListener("scroll", hideScrollDown);

@@ -4,7 +4,7 @@ import "./scrollBar.scss";
 const ScrollBar = (props) => {
   let displayScrollBar = props.shouldDisplay;
   const viewWindowHeight = window.innerHeight;
-  console.log(`windowHeight: ${viewWindowHeight}`);
+  const [scrollBarHeight, setScrollBarHeight] = React.useState([]);
   const [sectionHeightArr, setSectionHeightArr] = React.useState([]);
   const barFillRef = React.useRef(null);
 
@@ -15,36 +15,39 @@ const ScrollBar = (props) => {
     let aboutMeWrapperDiv = document.querySelectorAll(
       "#about-me-outter-wrap > div"
     );
-    let currentHeight = 0;
+
+    document.querySelector(".bar").style.marginTop = `${(
+      (window.innerHeight / documentHeight) *
+      viewWindowHeight
+    ).toFixed(2)}px`;
+
+    let currentHeight = window.innerHeight;
     aboutMeWrapperDiv.forEach((divElement, index) => {
-      if (index === 0) {
-        tempSectionHeightArr.push({
-          elementHeight: "0px",
-          elementIndex: "-∞",
-          elementName: "welcomeSentence",
-          accumulateHeight: currentHeight,
-        });
-        currentHeight += window.innerHeight;
-      }
       tempSectionHeightArr.push({
-        elementHeight: `${(
+        elementHeight: (
           (currentHeight / documentHeight) *
           viewWindowHeight
-        ).toFixed(2)}px`,
+        ).toFixed(2),
         elementIndex: `00${String(index + 1)}`,
         elementName: divElement.id,
         accumulateHeight: currentHeight,
       });
-      currentHeight += divElement.scrollHeight;
+      currentHeight += index !== 5 ? divElement.scrollHeight : 0;
+      if (index > 0) {
+        scrollBarHeight.push(
+          tempSectionHeightArr[index].elementHeight -
+            tempSectionHeightArr[index - 1].elementHeight
+        );
+      }
     });
-    tempSectionHeightArr.push({
-      elementHeight: `${viewWindowHeight}px`,
-      elementIndex: `∞`,
-      elementName: `end`,
-      accumulateHeight: currentHeight,
-    });
-    console.log(tempSectionHeightArr);
+    document.querySelector(".bar").style.height = `${(
+      ((currentHeight - window.innerHeight) / documentHeight) *
+      viewWindowHeight
+    ).toFixed(2)}px`;
+    setScrollBarHeight(scrollBarHeight);
     setSectionHeightArr(tempSectionHeightArr);
+    console.log(tempSectionHeightArr);
+    console.log(scrollBarHeight);
   };
 
   React.useEffect(() => {
@@ -60,34 +63,79 @@ const ScrollBar = (props) => {
   });
 
   const pageJumpFunc = (index, elementId) => {
-    console.log(index, elementId);
-    if (index === 0) {
-      window.scrollTo(0, 0);
-    } else if (index === sectionHeightArr.length - 1) {
-      window.scrollTo(0, document.body.scrollHeight);
-    } else {
-      document.querySelector(`#${elementId}`).scrollIntoView();
-    }
+    document.querySelector(`#${elementId}`).scrollIntoView();
   };
 
   const pageScrollFunc = () => {
+    if (!displayScrollBar) return;
     let currentPosition = window.pageYOffset;
-    let documentHeight = document.documentElement.scrollHeight;
-    let currentPercentage = (currentPosition / documentHeight * 100).toFixed(2);
-    barFillRef.current.style.height = `${currentPercentage}%`;
-    console.log(`currentPosition: ${currentPosition}`);
     for (let index = 0; index < sectionHeightArr.length; index++) {
+      let prevElement = index > 0 ? sectionHeightArr[index - 1] : null;
       let currentElement = sectionHeightArr[index];
-      let pointDiv = document.querySelector(`#scrollBarPoint${index}`);
+
       if (currentPosition >= currentElement.accumulateHeight) {
-        pointDiv.classList.remove('point--active');
-        pointDiv.classList.add('point--complete');
-      } else {
-        pointDiv.classList.remove('point--complete');
-        pointDiv.classList.add('point--active');
-        break;
+        if (index > 0) {
+          document
+            .querySelector(`#scrollBarPoint${index - 1}`)
+            .classList.remove("point--active");
+          document
+            .querySelector(`#scrollBarPoint${index - 1}`)
+            .classList.add("point--complete");
+        }
+        continue;
       }
+
+      if (prevElement) {
+        document
+          .querySelector(`#scrollBarPoint${index - 1}`)
+          .classList.add("point--active");
+        let intervalHeight =
+          currentElement.accumulateHeight - prevElement.accumulateHeight;
+        let currentPercentage =
+          (currentPosition - prevElement.accumulateHeight) / intervalHeight;
+        let barFillHeight = currentPercentage * scrollBarHeight[index - 1];
+        let baseHeight = scrollBarHeight
+          .slice(0, index - 1)
+          .reduce((acc, cur) => {
+            return acc + parseFloat(cur);
+          }, 0);
+        barFillHeight += baseHeight;
+        barFillRef.current.style.height = `${barFillHeight.toFixed(2)}px`;
+      }
+
+      for (
+        let tempIndex = index;
+        tempIndex < sectionHeightArr.length;
+        tempIndex++
+      ) {
+        document
+          .querySelector(`#scrollBarPoint${tempIndex}`)
+          .classList.remove("point--active");
+        document
+          .querySelector(`#scrollBarPoint${tempIndex}`)
+          .classList.remove("point--complete");
+      }
+      break;
     }
+
+    // let documentHeight = document.documentElement.scrollHeight;
+    // let currentPercentage = ((currentPosition / documentHeight) * 100).toFixed(
+    //   2
+    // );
+    // barFillRef.current.style.height = `${currentPercentage}%`;
+    // // console.log(`currentPosition: ${currentPosition}`);
+    // for (let index = 0; index < sectionHeightArr.length; index++) {
+    //   let currentElement = sectionHeightArr[index];
+    //   let pointDiv = document.querySelector(`#scrollBarPoint${index}`);
+    //   if (currentPosition >= currentElement.accumulateHeight) {
+    //     pointDiv.classList.remove("point--active");
+    //     pointDiv.classList.add("point--complete");
+    //   } else {
+    //     pointDiv.classList.remove("point--complete");
+    //     pointDiv.classList.add("point--active");
+    //     break;
+    //   }
+    // }
   };
 
   return (
@@ -102,7 +150,7 @@ const ScrollBar = (props) => {
               className="point"
               id={`scrollBarPoint${index}`}
               key={el.elementName}
-              style={{ marginTop: el.elementHeight }}
+              style={{ marginTop: `${el.elementHeight}px` }}
               onClick={() => {
                 pageJumpFunc(index, el.elementName);
               }}
