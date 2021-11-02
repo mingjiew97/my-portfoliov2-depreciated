@@ -6,6 +6,7 @@ const ScrollBar = (props) => {
   const viewWindowHeight = window.innerHeight;
   const [scrollBarHeight, setScrollBarHeight] = React.useState([]);
   const [sectionHeightArr, setSectionHeightArr] = React.useState([]);
+  const [labelMouseIn, setLabelMouseIn] = React.useState(false);
   const barFillRef = React.useRef(null);
 
   const initScrollBar = () => {
@@ -16,23 +17,31 @@ const ScrollBar = (props) => {
       "#about-me-outter-wrap > div"
     );
 
-    document.querySelector(".bar").style.marginTop = `${(
-      (window.innerHeight / documentHeight) *
-      viewWindowHeight
-    ).toFixed(2)}px`;
-
-    let currentHeight = window.innerHeight;
+    let firstDivElementHeight = 0;
+    let currentAccumHeight = 0;
     aboutMeWrapperDiv.forEach((divElement, index) => {
+      currentAccumHeight = document.querySelector(`#${divElement.id}`)
+        .offsetTop;
+      if (index === 0) {
+        firstDivElementHeight = currentAccumHeight;
+        document.querySelector(".bar").style.marginTop = `${(
+          (currentAccumHeight / documentHeight) *
+          viewWindowHeight
+        ).toFixed(2)}px`;
+      }
+
       tempSectionHeightArr.push({
         elementHeight: (
-          (currentHeight / documentHeight) *
+          (currentAccumHeight / documentHeight) *
           viewWindowHeight
         ).toFixed(2),
         elementIndex: `00${String(index + 1)}`,
         elementName: divElement.id,
-        accumulateHeight: currentHeight,
+        accumulateHeight: currentAccumHeight,
+        labelTitle: divElement.firstElementChild.firstElementChild.innerText.split(
+          "\n"
+        ),
       });
-      currentHeight += index !== 5 ? divElement.scrollHeight : 0;
       if (index > 0) {
         scrollBarHeight.push(
           tempSectionHeightArr[index].elementHeight -
@@ -40,14 +49,14 @@ const ScrollBar = (props) => {
         );
       }
     });
+
     document.querySelector(".bar").style.height = `${(
-      ((currentHeight - window.innerHeight) / documentHeight) *
+      ((currentAccumHeight - firstDivElementHeight) / documentHeight) *
       viewWindowHeight
     ).toFixed(2)}px`;
     setScrollBarHeight(scrollBarHeight);
     setSectionHeightArr(tempSectionHeightArr);
     console.log(tempSectionHeightArr);
-    console.log(scrollBarHeight);
   };
 
   React.useEffect(() => {
@@ -62,18 +71,26 @@ const ScrollBar = (props) => {
     };
   });
 
-  const pageJumpFunc = (index, elementId) => {
+  const pageJumpFunc = (elementId) => {
     document.querySelector(`#${elementId}`).scrollIntoView();
   };
 
   const pageScrollFunc = () => {
     if (!displayScrollBar) return;
-    let currentPosition = window.pageYOffset;
+    let currentPosition = Math.ceil(window.pageYOffset);
     for (let index = 0; index < sectionHeightArr.length; index++) {
       let prevElement = index > 0 ? sectionHeightArr[index - 1] : null;
       let currentElement = sectionHeightArr[index];
 
       if (currentPosition >= currentElement.accumulateHeight) {
+        if (index === 0) {
+          document
+            .querySelector(`#scrollBarPoint${index}`)
+            .classList.remove("point--complete");
+          document
+            .querySelector(`#scrollBarPoint${index}`)
+            .classList.add("point--active");
+        }
         if (index > 0) {
           document
             .querySelector(`#scrollBarPoint${index - 1}`)
@@ -81,6 +98,15 @@ const ScrollBar = (props) => {
           document
             .querySelector(`#scrollBarPoint${index - 1}`)
             .classList.add("point--complete");
+        }
+        if (index === sectionHeightArr.length - 1) {
+          document
+            .querySelector(`#scrollBarPoint${index}`)
+            .classList.remove("point--active");
+          document
+            .querySelector(`#scrollBarPoint${index}`)
+            .classList.add("point--complete");
+          document.querySelector(`#scrollBarPoint${index}`);
         }
         continue;
       }
@@ -103,6 +129,7 @@ const ScrollBar = (props) => {
         barFillRef.current.style.height = `${barFillHeight.toFixed(2)}px`;
       }
 
+      // remove the active and complete point class
       for (
         let tempIndex = index;
         tempIndex < sectionHeightArr.length;
@@ -117,29 +144,10 @@ const ScrollBar = (props) => {
       }
       break;
     }
-
-    // let documentHeight = document.documentElement.scrollHeight;
-    // let currentPercentage = ((currentPosition / documentHeight) * 100).toFixed(
-    //   2
-    // );
-    // barFillRef.current.style.height = `${currentPercentage}%`;
-    // // console.log(`currentPosition: ${currentPosition}`);
-    // for (let index = 0; index < sectionHeightArr.length; index++) {
-    //   let currentElement = sectionHeightArr[index];
-    //   let pointDiv = document.querySelector(`#scrollBarPoint${index}`);
-    //   if (currentPosition >= currentElement.accumulateHeight) {
-    //     pointDiv.classList.remove("point--active");
-    //     pointDiv.classList.add("point--complete");
-    //   } else {
-    //     pointDiv.classList.remove("point--complete");
-    //     pointDiv.classList.add("point--active");
-    //     break;
-    //   }
-    // }
   };
 
   return (
-    <div className={"progress " + (displayScrollBar ? "active" : "active")}>
+    <div className={"progress " + (displayScrollBar ? "active" : "")}>
       <div className="bar">
         <div className="bar__fill" ref={barFillRef} />
       </div>
@@ -152,11 +160,27 @@ const ScrollBar = (props) => {
               key={el.elementName}
               style={{ marginTop: `${el.elementHeight}px` }}
               onClick={() => {
-                pageJumpFunc(index, el.elementName);
+                pageJumpFunc(el.elementName);
               }}
             >
               <div className="bullet"></div>
-              <label className="label">{el.elementIndex}</label>
+              <div>
+                <label
+                  className={"label " + (labelMouseIn ? "active" : "")}
+                  onMouseEnter={() => setLabelMouseIn(true)}
+                  onMouseLeave={() => setLabelMouseIn(false)}
+                >
+                  {el.labelTitle[0]} {" "}
+                </label>
+                <span className="label-text">{el.labelTitle.slice(1).join(" ")}</span>
+
+                {/* <label
+                  className={"label-text " + (labelMouseIn ? "active" : "active")}
+                  onMouseLeave={() => setLabelMouseIn(false)}
+                >
+                  {el.labelTitle.slice(1).join(" ")}
+                </label> */}
+              </div>
             </div>
           );
         })}

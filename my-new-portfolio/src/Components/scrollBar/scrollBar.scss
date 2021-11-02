@@ -38,10 +38,9 @@
   height: 50%;
 }
 
-
 .point {
   position: fixed;
-  color: #AC9585;
+  color: #ac9585;
   cursor: pointer;
   display: block;
   left: 12px;
@@ -57,49 +56,99 @@
 .show-radius .point:before {
   background: rgba(0, 0, 0, 0.1);
 }
-.point--complete, .point--active {
-  color: #BA7C3F;
+.point--complete,
+.point--active {
+  color: #ba7c3f;
 }
 
 .bullet {
   z-index: 1;
   position: relative;
-  background: #AC9585;
+  background: #ac9585;
   width: 8px;
   height: 8px;
   border-radius: 100%;
   transition: 0.3s ease;
 }
-.point--complete .bullet, .point--active .bullet {
-  background: #FFFFFF;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 6px #BD8044;
+.point--complete .bullet,
+.point--active .bullet {
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 6px #bd8044;
 }
 .point--active .bullet {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 10px #BD8044;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 10px #bd8044;
 }
 
 .label {
+  cursor: pointer;
   position: absolute;
   z-index: 10;
-  top: -2px;
-  left: 20px;
+  top: -3px;
+  left: 23px;
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Major Mono Display", monospace;
+  transition: 0.3s ease;
 }
+
+.label-text {
+  opacity: 0;
+  visibility: hidden;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+}
+
+.label.active {
+  width: 100vw;
+  height: 3vh;
+  backdrop-filter: blur(20px);
+  .label-text {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.label:hover {
+  transition: 0.3s ease;
+  color: #ba7c3f;
+  font-size: 2rem;
+}
+
+// .label-text {
+//   opacity: 0;
+//   visibility: hidden;
+//   height: 15vh;
+//   width: 100vw;
+//   position: absolute;
+//   padding: 20px;
+//   z-index: 10;
+//   left: 23px;
+//   font-size: 1rem;
+//   font-weight: 600;
+//   text-transform: uppercase;
+//   backdrop-filter: blur(10px);
+//   font-family: "Open Sans", sans-serif;
+//   transition: 0.3s ease;
+// }
+
+// .label-text.active {
+//   opacity: 1;
+//   visibility: visible;
+//   transition: 0.3s ease;
+// }
 
 .radius-toggle {
   position: absolute;
   top: 20px;
   left: 20px;
   display: block;
-  background: #FFF;
+  background: #fff;
   border: 0;
   border-radius: 4px;
   box-shadow: 40px 0 65px rgba(212, 197, 186, 0.4);
   padding: 10px;
-  color: #BA7C3F;
+  color: #ba7c3f;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
