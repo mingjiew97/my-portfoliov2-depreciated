@@ -21,7 +21,6 @@
   left: 15px;
   background: #e8dfd8;
   width: 3px;
-  // height: 90vh;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -29,13 +28,6 @@
 .bar__fill {
   display: block;
   background: #bd8044;
-  // height: 100%;
-}
-
-.bar__fill2 {
-  display: block;
-  background: red;
-  height: 50%;
 }
 
 .point {
@@ -79,64 +71,49 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 0 10px #bd8044;
 }
 
+.blur-section {
+  left: 30px;
+  position: fixed;
+  width: 25rem;
+  height: 100vh;
+  backdrop-filter: blur(30px);
+}
+
 .label {
   cursor: pointer;
   position: absolute;
   z-index: 10;
-  top: -3px;
+  top: -13px;
   left: 23px;
+  padding: 10px 0;
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Major Mono Display", monospace;
   transition: 0.3s ease;
-}
-
-.label-text {
-  opacity: 0;
-  visibility: hidden;
-  text-transform: uppercase;
-  font-family: "Open Sans", sans-serif;
-}
-
-.label.active {
-  width: 100vw;
-  height: 3vh;
-  backdrop-filter: blur(20px);
-  .label-text {
-    opacity: 1;
-    visibility: visible;
+  span {
+    font-size: 1rem;
+    visibility: hidden;
+    opacity: 0;
+    font-family: "Open Sans", sans-serif;
+    transition: 0.3s ease;
   }
 }
 
-.label:hover {
-  transition: 0.3s ease;
+.label.active {
+  top: -30px;
+  font-size: 1.2rem;
   color: #ba7c3f;
-  font-size: 2rem;
+  width: 25rem;
+  transition: 0.3s ease;
+  span {
+    font-size: 1.2rem;
+    line-height: 2;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.3s ease;
+  }
 }
-
-// .label-text {
-//   opacity: 0;
-//   visibility: hidden;
-//   height: 15vh;
-//   width: 100vw;
-//   position: absolute;
-//   padding: 20px;
-//   z-index: 10;
-//   left: 23px;
-//   font-size: 1rem;
-//   font-weight: 600;
-//   text-transform: uppercase;
-//   backdrop-filter: blur(10px);
-//   font-family: "Open Sans", sans-serif;
-//   transition: 0.3s ease;
-// }
-
-// .label-text.active {
-//   opacity: 1;
-//   visibility: visible;
-//   transition: 0.3s ease;
-// }
 
 .radius-toggle {
   position: absolute;
