@@ -3,6 +3,7 @@ import "./scrollBar.scss";
 
 const ScrollBar = (props) => {
   let displayScrollBar = props.shouldDisplay;
+  const mobileView = (window.innerWidth <= 800);
   const viewWindowHeight = window.innerHeight;
   const [scrollBarHeight, setScrollBarHeight] = React.useState([]);
   const [sectionHeightArr, setSectionHeightArr] = React.useState([]);

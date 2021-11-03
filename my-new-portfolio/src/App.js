@@ -40,7 +40,7 @@ const App = () => {
 
   return (
     <div className="full-page-container">
-      {/* <ScrollBar shouldDisplay={fullyLoaded} />  */}
+      <ScrollBar shouldDisplay={fullyLoaded} /> 
 
       <div>
         <PageEnterAnimation
