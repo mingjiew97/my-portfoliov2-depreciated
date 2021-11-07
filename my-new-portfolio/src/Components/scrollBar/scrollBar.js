@@ -152,13 +152,11 @@ const ScrollBar = (props) => {
       <div className="bar">
         <div className="bar__fill" ref={barFillRef} />
       </div>
-      {labelMouseIn ? (
-        <div
-          className="blur-section"
+      <div
+          className={"blur-section " + (labelMouseIn ? "active" : "")}
           onMouseEnter={() => setLabelMouseIn(true)}
           onMouseLeave={() => setLabelMouseIn(false)}
         />
-      ) : null}
       <div className="point-group">
         {sectionHeightArr.map((el, index) => {
           return (

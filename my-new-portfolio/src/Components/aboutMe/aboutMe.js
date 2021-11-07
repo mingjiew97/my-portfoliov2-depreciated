@@ -180,7 +180,7 @@ const AboutMe = (props) => {
           <h2 className="section-paragraph section-text">
             I believe
             <span className="name-text"> LESS is MORE </span>. <br />
-            All of my <span className="cross-text">outfit</span> work <br />{" "}
+            All of my <span className="cross-text">outfit</span> work 
             reflect my addiction of{" "}
             <span className="minimalism-text">Minimalism</span>.
           </h2>
@@ -194,7 +194,7 @@ const AboutMe = (props) => {
           data-aos-easing="ease"
         >
           <h2 className="section-paragraph section-text">
-            I am constantly <br />
+            I am constantly  {" "}
             <span className="level-up-text">
               <span>l</span>
               <span>e</span>
@@ -411,7 +411,7 @@ const AboutMe = (props) => {
         >
           <h1 className="section-paragraph section-title">
             <small> (003) </small> <br />
-            WHAT HAVE <br />I DONE?
+            WHAT HAVE I DONE?
           </h1>
         </div>
 
@@ -497,7 +497,7 @@ const AboutMe = (props) => {
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
               <div className="work-section-detail">
-                Developed and Maintained Verizon's <br />
+                Developed and Maintained Verizon's {" "}
                 <a
                   className="thingspace-link"
                   href="https://thingspace.verizon.com/index.html"

@@ -85,9 +85,14 @@
 .blur-section {
   left: 30px;
   position: fixed;
-  width: 25rem;
+  width: 0rem;
   height: 100vh;
   backdrop-filter: blur(30px);
+  transition: 0.3s ease;
+}
+.blur-section.active {
+  width: 25rem;
+  transition: 0.3s ease;
 }
 
 .label {
@@ -107,24 +112,25 @@
     visibility: hidden;
     opacity: 0;
     font-family: "Open Sans", sans-serif;
-    transition: 0.3s ease;
   }
 }
 
 .label.active {
   top: -30px;
   font-size: 1.2rem;
-  color: #ba7c3f;
   width: 25rem;
-  transition: 0.3s ease;
   span {
     font-size: 1.2rem;
     line-height: 2;
     visibility: visible;
     opacity: 1;
-    transition: 0.3s ease;
   }
 }
+
+.label.active:hover {
+  color: pink;
+}
+
 
 @media (max-width: 800px) {
   .label.active {
