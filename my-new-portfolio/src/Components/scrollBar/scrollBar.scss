@@ -85,7 +85,7 @@
 .blur-section {
   left: 30px;
   position: fixed;
-  width: 0rem;
+  width: 0;
   height: 100vh;
   backdrop-filter: blur(30px);
   transition: 0.3s ease;
@@ -133,7 +133,11 @@
 
 
 @media (max-width: 800px) {
+  .label {
+    display: none;
+  }
   .label.active {
+    display: block;
     top: -20px;
     font-size: 0.7rem;
     span {
@@ -142,6 +146,9 @@
   }
   .blur-section {
     left: 25px;
+    width: 0;
+  }
+  .blur-section.active {
     width: 15rem;
   }
 }

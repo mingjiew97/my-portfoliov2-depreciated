@@ -57,7 +57,6 @@ const ScrollBar = (props) => {
     ).toFixed(2)}px`;
     setScrollBarHeight(scrollBarHeight);
     setSectionHeightArr(tempSectionHeightArr);
-    console.log(tempSectionHeightArr);
   };
 
   React.useEffect(() => {

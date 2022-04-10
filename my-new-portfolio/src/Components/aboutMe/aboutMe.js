@@ -8,7 +8,6 @@ import "./aboutMe.scss";
 import "aos/dist/aos.css";
 
 const AboutMe = (props) => {
-
   useEffect(() => {
     AOS.init();
   }, []);
@@ -62,7 +61,6 @@ const AboutMe = (props) => {
 
   const endSendAnimation = () => {
     setMessageSent(false);
-    console.log(document.querySelector("#send-button"));
     if (document.querySelector("#send-button"))
       document.querySelector("#send-button").classList.remove("hidden");
   };
@@ -179,10 +177,9 @@ const AboutMe = (props) => {
         >
           <h2 className="section-paragraph section-text">
             I believe
-            <span className="name-text"> LESS is MORE </span>. <br />
-            All of my <span className="cross-text">outfit</span> work 
-            reflect my addiction of{" "}
-            <span className="minimalism-text">Minimalism</span>.
+            <span className="name-text"> LESS is MORE</span>. <br />
+            All of my <span className="cross-text">outfit</span> work reflect my
+            addiction of <span className="minimalism-text">Minimalism</span>.
           </h2>
         </div>
 
@@ -194,7 +191,7 @@ const AboutMe = (props) => {
           data-aos-easing="ease"
         >
           <h2 className="section-paragraph section-text">
-            I am constantly  {" "}
+            I am constantly <br />
             <span className="level-up-text">
               <span>l</span>
               <span>e</span>
@@ -242,10 +239,7 @@ const AboutMe = (props) => {
         >
           <h1 className="section-paragraph section-title">
             <small> (002) </small> <br />
-            WHY I AM AN <br /> <span className="awesome-text">
-              AWESOME
-            </span>{" "}
-            DEVELOPER?
+            WHY I AM AN <span className="awesome-text">AWESOME</span> DEVELOPER?
           </h1>
         </div>
 
@@ -497,7 +491,7 @@ const AboutMe = (props) => {
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
               <div className="work-section-detail">
-                Developed and Maintained Verizon's {" "}
+                Developed and Maintained Verizon's{" "}
                 <a
                   className="thingspace-link"
                   href="https://thingspace.verizon.com/index.html"
@@ -687,9 +681,15 @@ const AboutMe = (props) => {
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
               <div className="work-section-detail">
-                Developed and Designed a Machine Learning application to predict
-                days and locations of when air quality in China would be most
-                heavily polluted{" "}
+                Air Pollution Prediction App
+                <div className="work-section-small-detail mt3vh">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    Developed and Designed a Machine Learning application to
+                    predict days and locations of when air quality in China
+                    would be most heavily polluted
+                  </div>
+                </div>
                 <div className="work-section-small-detail">
                   <div className="work-section-small-detail-dot">-</div>
                   <div className="work-section-small-detail-text">
@@ -722,10 +722,16 @@ const AboutMe = (props) => {
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
               <div className="work-section-detail">
-                Developed a Python program using NLP to parse and extra semantic
-                information from National Health and Nutrition Examination
-                Survey (NHANES) data in order to automatically populate database
-                tables{" "}
+                NHANES Semantic Autopopulation Dictionary
+                <div className="work-section-small-detail">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    Developed a Python program using NLP to parse and extra
+                    semantic information from National Health and Nutrition
+                    Examination Survey (NHANES) data in order to automatically
+                    populate database tables
+                  </div>
+                </div>
                 <div className="work-section-small-detail">
                   <div className="work-section-small-detail-dot">-</div>
                   <div className="work-section-small-detail-text">
@@ -769,10 +775,16 @@ const AboutMe = (props) => {
             <div className="work-section-row">
               <div className="work-section-dot">&#183;</div>
               <div className="work-section-detail">
-                Developed a Python application to extra prominent and relevant
-                information from 100+ Economist resumes from the United States
-                and Russia to gather data for analyzing economic backgrounds
-                between the two countries
+                Resume Parser
+                <div className="work-section-small-detail">
+                  <div className="work-section-small-detail-dot">-</div>
+                  <div className="work-section-small-detail-text">
+                    Developed a Python application to extra prominent and
+                    relevant information from 100+ Economist resumes from the
+                    United States and Russia to gather data for analyzing
+                    economic backgrounds between the two countries
+                  </div>
+                </div>
               </div>
             </div>
           </h2>
@@ -1144,7 +1156,7 @@ const AboutMe = (props) => {
         <div
           className="paragraph-div"
           data-aos="zoom-out-up"
-          data-aos-anchor-placement="center-center"
+          data-aos-anchor-placement="top-center"
           data-aos-duration="600"
           data-aos-easing="ease"
         >
@@ -1247,7 +1259,7 @@ const AboutMe = (props) => {
         </div>
 
         <div
-          className="paragraph-div mt3vh mb3vh button-div"
+          className="paragraph-div mt0vh mb3vh button-div"
           data-aos="zoom-out-up"
           data-aos-anchor-placement="bottom-bottom"
           data-aos-duration="600"
@@ -1264,7 +1276,7 @@ const AboutMe = (props) => {
           ) : (
             <span id="send-animation-span" className="send-animation">
               <lottie-player
-                src={window.location.origin + "/static/lottie/send.json"}
+                src="https://assets7.lottiefiles.com/packages/lf20_pdjhggra.json"
                 background="transparent"
                 speed="0.8"
                 autoplay
@@ -1273,15 +1285,17 @@ const AboutMe = (props) => {
           )}
         </div>
 
-        <div className="paragraph-div mt5vh mb3vh sent-message-div">
+        <div className="paragraph-div mt0vh mb3vh sent-message-div">
           <div
             className={
               messageSent ? "section-paragraph" : "section-paragraph hidden"
             }
           >
-            <h2 className="error-text pink-color">
-              Message Sent! <br />I will get back to you ASAP!
-            </h2>
+            {messageSent ? (
+              <h2 className="error-text pink-color">
+                Message Sent! <br />I will get back to you ASAP!
+              </h2>
+            ) : null}
           </div>
         </div>
       </div>
@@ -1307,7 +1321,7 @@ const AboutMe = (props) => {
           data-aos-duration="600"
           data-aos-easing="ease"
         >
-          <div className="my-github-wrapper">
+          <div className="social-media-icon-wrapper">
             <span className="stalk-text">GITHUB</span>
             <a
               className="contatct-link"
@@ -1316,7 +1330,7 @@ const AboutMe = (props) => {
               rel="noreferrer"
             >
               <lottie-player
-                src={window.location.origin + "/static/lottie/github.json"}
+                src="https://assets5.lottiefiles.com/packages/lf20_kysfwjwr.json"
                 background="transparent"
                 speed="1"
                 loop
@@ -1324,7 +1338,7 @@ const AboutMe = (props) => {
               ></lottie-player>
             </a>
           </div>
-          <div className="my-facebook-wrapper">
+          <div className="social-media-icon-wrapper">
             <span className="stalk-text">FACEBOOK</span>
             <a
               className="contatct-link"
@@ -1333,7 +1347,7 @@ const AboutMe = (props) => {
               rel="noreferrer"
             >
               <lottie-player
-                src={window.location.origin + "/static/lottie/facebook.json"}
+                src="https://assets10.lottiefiles.com/packages/lf20_lmmjtzrd.json"
                 background="transparent"
                 speed="1"
                 loop
@@ -1341,7 +1355,7 @@ const AboutMe = (props) => {
               ></lottie-player>
             </a>
           </div>
-          <div className="my-linkedin-wrapper">
+          <div className="social-media-icon-wrapper">
             <span className="stalk-text">LINKEDIN</span>
             <a
               className="contatct-link"
@@ -1350,7 +1364,7 @@ const AboutMe = (props) => {
               rel="noreferrer"
             >
               <lottie-player
-                src={window.location.origin + "/static/lottie/linkedin.json"}
+                src="https://assets5.lottiefiles.com/packages/lf20_p1mfdgpv.json"
                 background="transparent"
                 speed="1.5"
                 loop
@@ -1358,12 +1372,12 @@ const AboutMe = (props) => {
               ></lottie-player>
             </a>
           </div>
-          <div className="my-wechat-wrapper">
+          <div className="social-media-icon-wrapper">
             <span className="stalk-text">WECHAT</span>
             <Popup
               trigger={
                 <lottie-player
-                  src={window.location.origin + "/static/lottie/wechat.json"}
+                  src="https://assets6.lottiefiles.com/packages/lf20_46fytun6.json"
                   mode="bounce"
                   background="transparent"
                   speed="1"
@@ -1380,9 +1394,7 @@ const AboutMe = (props) => {
                   </button>
                   <img
                     className="qrcode"
-                    src={
-                      window.location.origin + "/static/image/wechat-qrcode.png"
-                    }
+                    src={require("./static/image/wechat-qrcode.png").default}
                     alt="wechat-qrcode"
                   />
                 </div>
@@ -1391,35 +1403,6 @@ const AboutMe = (props) => {
           </div>
         </div>
       </div>
-
-      {/* <div id="easter-egg">
-        <div
-          className="paragraph-div"
-          data-aos="zoom-out-up"
-          data-aos-anchor-placement="top-bottom"
-          data-aos-duration="600"
-          data-aos-easing="ease"
-        >
-          <h1 className="section-paragraph section-title">
-            <small> (007) </small> <br />
-            <span className="squad-text">EASTER EGG</span>
-          </h1>
-        </div>
-
-        <div
-          className="paragraph-div"
-          data-aos="zoom-out-up"
-          data-aos-anchor-placement="top-bottom"
-          data-aos-duration="600"
-          data-aos-easing="ease"
-        >
-          <img
-            className="qrcode"
-            src={window.location.origin + "/static/image/wechat-qrcode.png"}
-            alt="wechat-qrcode"
-          />
-        </div>
-      </div> */}
     </div>
   );
 };
